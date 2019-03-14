@@ -4,6 +4,7 @@
 #include "Land.hpp"
 #include "Renderable.hpp"
 
+// kelas GrassLand, Land untuk hewan penghasil susu
 class Grassland : public Land, Renderable {
 	public:
 		// Mengembalikan karakter '-' sebagai representasi Grassland

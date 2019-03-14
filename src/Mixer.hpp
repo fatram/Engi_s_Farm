@@ -4,6 +4,7 @@
 #include "Facility.hpp"
 #include "Renderable.hpp"
 
+// kelas Mixer, Facility untuk membuat SideProduct
 class Mixer : public Facility, Renderable {
 	public:
 		// mengembalikan karakter 'M' sebagai representasi Mixer

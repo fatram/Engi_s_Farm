@@ -1,8 +1,10 @@
 #ifndef CELL_HPP
 #define CELL_HPP
 
+// kelas abstrak Cell
 class Cell {
-	virtual ~Cell() = 0;
+	public:
+		virtual interact() = 0;
 };
 
 #endif

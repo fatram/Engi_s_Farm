@@ -3,6 +3,7 @@
 
 #include "Product.hpp"
 
+// kelas Player, representasi pemain dalam permainan
 class Player {
 	private:
 		int water;			// banyak air yang saat ini dimiliki pemain

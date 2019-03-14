@@ -3,8 +3,10 @@
 
 #include "Cell.hpp"
 
+// kelas abstrak Facility
 class Facility : public Cell {
-	virtual ~Facility() = 0;
+	public:
+		virtual ~Facility() = 0;
 };
 
 #endif

@@ -1,8 +1,10 @@
 #ifndef PRODUCT_HPP
 #define PRODUCT_HPP
 
+// kelas abstrak Product
 class Product {
-	virtual ~Product() = 0;
+	public:
+		virtual ~Product() = 0;
 };
 
 #endif

@@ -3,7 +3,7 @@
 
 #include "Product.hpp"
 
-class SideProduct : Product {
+class SideProduct : public Product {
 
 };
 
