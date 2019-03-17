@@ -18,6 +18,8 @@ class Player {
 		// user defined ctor, this->water = water, this->maxWater = maxWater, this->maxBag = maxBag, bag dialokasi sebanyak maxBag
 		Player(int water, int maxWater, int maxBag);
 		
+		~Player();
+		
 		// setter
 		// meng-set water sesuai input
 		void setWater(int);

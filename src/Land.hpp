@@ -12,7 +12,7 @@ class Land : public Cell {
 		void grow(); // set hasGrass jadi true
 		bool getHasGrass(); // mengembalikan hasGrass
 		void setHasGrass(bool); // set hasGrass sesuai input
-		virtual ~Land() = 0;
+		virtual ~Land();// = 0;
 };
 
 #endif

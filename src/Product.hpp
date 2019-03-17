@@ -4,7 +4,7 @@
 // kelas abstrak Product
 class Product {
 	public:
-		virtual ~Product() = 0;
+		virtual ~Product();
 };
 
 #endif

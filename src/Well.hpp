@@ -9,6 +9,9 @@ class Well : public Facility, Renderable {
 	public:
 		// mengembalikan karakter 'W' sebagai representasi Well
 		char render();
+
+		//Menggunakan fasilitas Well untuk mengisi air pada player 
+		void useFacility(Player& P);
 };
 
 #endif

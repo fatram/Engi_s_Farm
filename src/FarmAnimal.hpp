@@ -1,6 +1,8 @@
 #ifndef FARMANIMAL_HPP
 #define FARMANIMAL_HPP
 
+#include "FarmProduct.hpp"
+
 // kelas abstrak FarmAnimal
 class FarmAnimal {
 	private:
@@ -11,7 +13,7 @@ class FarmAnimal {
 		
 	public:
 		virtual void talk() = 0; // mengeluarkan suara tergantung jenis hewan
-		virtual FarmProduct void kill() = 0; // mengembalikan FarmProduct tergantung jenis hewan yang di-kill
+		virtual FarmProduct kill() = 0; // mengembalikan FarmProduct tergantung jenis hewan yang di-kill
 		virtual void eat() = 0; // makan dan mengembalikan FarmProduct tergantung jenis hewan
 		
 		// getter setter

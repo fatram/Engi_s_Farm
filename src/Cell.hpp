@@ -4,7 +4,8 @@
 // kelas abstrak Cell
 class Cell {
 	public:
-		virtual interact() = 0;
+		virtual void interact();
+		virtual ~Cell();
 };
 
 #endif
