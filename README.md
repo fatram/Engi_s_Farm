@@ -16,6 +16,6 @@ Kelas yang belum ada dan belum diimplementasi:
   * Duck egg
   * Camel milk
 * Side Product (ABC)
-  * Pancake
-  * Duck egg omelette
-  * Sausage
+  * Pancake (Chicken egg + Cow milk)
+  * Duck egg omelette (Duck egg + Camel milk)
+  * Sausage (Goat meat + Horse meat)
