@@ -1,8 +1,7 @@
 #ifndef COW_HPP
 #define COW_HPP
 
-#include "FarmAnimal.hpp.hpp"
-
+#include "FarmAnimal.hpp"
 
 class Cow : public FarmAnimal {
 
