@@ -11,6 +11,8 @@ class FarmAnimal {
 		bool milkProducing; // indikator penghasil susu
 		const int lifeSpan; // masa hidup hewan
 		int hungry; // akan menyebebkan animal hungry jika nilainya negatif
+		int posX; // posisi X pada papan permainan
+		int posY; // posisi Y pada papan permainan
 		
 	public:
 		virtual void talk() = 0; // mengeluarkan suara tergantung jenis hewan
@@ -24,6 +26,10 @@ class FarmAnimal {
 		bool getEggProducing(); // mengembalikan eggProducing
 		bool getMilkProducing(); // mengembalikan milkProducing
 		int getLifeSpan(); // mengembalikan lifeSpan
+		int getPosX() const; // Mengembalikan posX
+		int getPosY() const; // Mengembalikan posY
+		void setPosX(int); // set posX baru sesuai input
+		void setPosY(int); // set posY baru sesuai input
 		
 		// cek kategori FarmAnimal
 		bool isMeatProducing(); // true jika meatProducing bernilai true
@@ -31,11 +37,10 @@ class FarmAnimal {
 		bool isMilkProducing(); // true jika milkProducing bernilai true
 		
 		//Berkaitan dengan aksi yg dilakukan animal
-		virtual void Bersuara() = 0; //Suara animal
+		virtual void Sound() = 0; //Suara animal
 		void makan(); //procedure animal memakan grass
 		bool isHungry(); //Mengecek apakah animal dalam keadaan hungry atau tidak
 		void updateHungry(); //mengupdate hungry tiap tick
-bool isMeat();
 };
 
 #endif
