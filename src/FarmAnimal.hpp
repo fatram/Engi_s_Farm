@@ -15,6 +15,8 @@ class FarmAnimal {
 		int posY; // posisi Y pada papan permainan
 		
 	public:
+		 // user-defined ctor meatProducing = meat, eggProducing = egg, milkProducing = milk, lifeSpan = life, hungry = life, posX = x, posY = y 
+		FarmProduct(bool meat, bool egg, bool milk, int life, int x, int y);
 		virtual void talk() = 0; // mengeluarkan suara tergantung jenis hewan
 		virtual FarmProduct kill() = 0; // mengembalikan FarmProduct tergantung jenis hewan yang di-kill
 		virtual void eat() = 0; // makan dan mengembalikan FarmProduct tergantung jenis hewan
