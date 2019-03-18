@@ -12,6 +12,7 @@ class Player {
 		int posY;
 		const int maxWater;	// maksimum air yang dapat dimiliki
 		const int maxBag;	// kapasitas maksimum tas
+		int money; // Uang yang dimiliki player
 		
 	public:
 		// default ctor, water = 0, maxWater = 10, maxBag = 10, bag dialokasi sebanyak maxBag
@@ -43,7 +44,10 @@ class Player {
 		int getPosY(); // mengembalikan posisi Y pemain
 		void setPosX(int x); // set posisi pemain dengan X
 		void setPosY(int y); // set posisi pemain dengan Y
+		int getMoney() const; // mengembalikan money
+		void setMoney(int); // set money sesuai input
 	
+		void addMoney(int); // tambahkan input ke money saat ini
 
 		
 };
