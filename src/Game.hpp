@@ -13,7 +13,12 @@
 #include "Coop.hpp"
 #include "FarmProduct.hpp"
 #include "SideProduct.hpp"
-#include "FarmAnimal.hpp"
+#include "Camel.hpp"
+#include "Chicken.hpp"
+#include "Cow.hpp"
+#include "Duck.hpp"
+#include "Goat.hpp"
+#include "Horse.hpp"
 using namespace std;
 
 //kelas Game menyediakan informasi board permainan, posisi pemein, dan mekanisme umum game
@@ -23,7 +28,8 @@ class Game {
 		LinkedList<FarmAnimal> animal;
 		const int width; // lebar lapangan
 		const int height; // tinggi lapangan
-
+		int posX; // posisi koordinat X pemain
+		int posY; // posisi koordinat Y pemain
 		
 	public:
 		// default constructor, ukuran lapangan di set 10*10, posisi awal pemain di 5,5
@@ -35,11 +41,7 @@ class Game {
 		~Game();
 		
 		//setter & getter
-		int getWidth();
-		int getHeight();
-		void setWidth(int);
-		void setHeight(int);
-
+		
 		void setBoard(Cell c); // set item di koordinat x, y
 	
 		// playing
