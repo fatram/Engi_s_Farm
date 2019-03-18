@@ -5,6 +5,7 @@
 
 class FarmProduct : public Product {
     public:
+        virtual ~FarmProduct(); 
 };
 
 #endif
