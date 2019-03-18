@@ -10,6 +10,7 @@ class FarmAnimal {
 		bool eggProducing; // indikator penghasil telur
 		bool milkProducing; // indikator penghasil susu
 		const int lifeSpan; // masa hidup hewan
+		int hungry; // akan menyebebkan animal hungry jika nilainya negatif
 		
 	public:
 		virtual void talk() = 0; // mengeluarkan suara tergantung jenis hewan
@@ -29,6 +30,13 @@ class FarmAnimal {
 		bool isMeatProducing(); // true jika meatProducing bernilai true
 		bool isEggProducing(); // true jika eggProducing bernilai true
 		bool isMilkProducing(); // true jika milkProducing bernilai true
+		
+		//Berkaitan dengan aksi yg dilakukan animal
+		virtual void Bersuara() = 0; //Suara animal
+		void makan(); //procedure animal memakan grass
+		bool isHungry(); //Mengecek apakah animal dalam keadaan hungry atau tidak
+		void updateHungry(); //mengupdate hungry tiap tick
+bool isMeat();
 };
 
 #endif
