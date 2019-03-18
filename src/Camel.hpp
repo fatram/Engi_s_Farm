@@ -2,6 +2,7 @@
 #define CAMEL_HPP
 
 #include "FarmAnimal.hpp"
+#include "Renderable.hpp"
 
 class Camel : public FarmAnimal, Renderable {
 
