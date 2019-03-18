@@ -8,7 +8,7 @@ class Product {
 	public:
 	 	virtual Product(int h);
 		virtual ~Product();
-		int getHarga() const;
+		virtual getHarga() const;
 };
 
 #endif
