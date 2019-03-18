@@ -2,6 +2,7 @@
 #define CHICKEN_HPP
 
 #include "FarmAnimal.hpp"
+#include "Renderable.hpp"
 
 class Chicken : public FarmAnimal, Renderable {
 
