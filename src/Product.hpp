@@ -3,8 +3,12 @@
 
 // kelas abstrak Product
 class Product {
+	private :
+		int harga;
 	public:
+	 	virtual Product(int h);
 		virtual ~Product();
+		int getHarga() const;
 };
 
 #endif
