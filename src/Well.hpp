@@ -5,13 +5,14 @@
 #include "Renderable.hpp"
 
 // kelas Well, Facility untuk ambil air
-class Well : public Facility, Renderable {
+class Well : public Facility, Renderable,Player {
 	public:
 		// mengembalikan karakter 'W' sebagai representasi Well
 		char render();
 
 		//Menggunakan fasilitas Well untuk mengisi air pada player 
 		void useFacility(Player& P);
+	v	oid fill_Water(); //Mengisi atribut water player
 };
 
 #endif
