@@ -2,7 +2,6 @@
 #define CHICKEN_HPP
 
 #include "FarmAnimal.hpp"
-#include "MeatPFA.h"
 
 class Chicken : public FarmAnimal {
 
