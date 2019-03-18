@@ -37,20 +37,7 @@ class Player {
 		// mengembalikan maxBag
 		int getMaxBag() const;
 	
-  		//Aksi player untuk berinteraksi dengan animal
-		void Talk();
 
-		//Aksi player untuk berinteraksi dengan facility
-		void Interact();
-
-		//Aksi player untuk membunuh animal
-		void Kill();
-
-		// Aksi player untuk menumbuhkan rumput pada cell tempat player berada */
-		void Grow();
-
-		// Aksi player untuk membuat Side Product pada Facility Mixer */
-		void Mix();
 		
 };
 
