@@ -9,6 +9,7 @@ class Land : public Cell {
 		bool hasGrass;	// true jika ada rumput di land tersebut, false jika sebaliknya
 		
 	public:
+		Land(int, int); //set hasFacility False
 		void grow(); // set hasGrass jadi true
 		bool getHasGrass(); // mengembalikan hasGrass
 		void setHasGrass(bool); // set hasGrass sesuai input

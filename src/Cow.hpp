@@ -2,17 +2,19 @@
 #define COW_HPP
 
 #include "FarmAnimal.hpp"
-#include "Renderable.hpp"
 
 class Cow : public FarmAnimal, Renderable {
 
     private :
 
     public :
-        Cow(); //Konstruktor
-        void Sounds(); //Menghasilkan suara cow
-        char render(); //Mengembalikan karakter 'S' sebagai representasi objek Cow
-
+        Cow();
+		Cow(int, int); //Konstruktor
+        void Bersuara(); //Menghasilkan suara cow
+		char render();
+		FarmProduct kill();
+        void talk();
+        void eat();
 };
 
 #endif

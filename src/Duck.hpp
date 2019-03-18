@@ -2,17 +2,19 @@
 #define DUCK_HPP
 
 #include "FarmAnimal.hpp"
-#include "Renderable.hpp"
 
-class Duck : public FarmAnimal, Renderable {
+class Chicken : public FarmAnimal, Renderable {
 
     private :
 
     public :     
-        Duck();// Konstruktor 
-        void Sounds(); //Menghasilkan suara Duck
-        char render(); //Mengembalikan karakter 'B' sebagai representasi objek Duck
-
+    	Duck();
+        Duck(int, int);// Konstruktor 
+        void Bersuara(); //Menghasilkan suara Duck
+		char render();
+		FarmProduct kill();
+        void talk();
+        void eat();
 };
 
 #endif

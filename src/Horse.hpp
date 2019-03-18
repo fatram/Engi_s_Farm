@@ -2,17 +2,20 @@
 #define HORSE_HPP
 
 #include "FarmAnimal.hpp"
-#include "Renderable.hpp"
 
-class Horse : public FarmAnimal, Renderable {
+class Horse : public FarmAnimal,Renderable {
 
     private :
-
-    public :     
-        Horse();// Konstruktor 
-        void Sounds(); //Menghasilkan suara horse
-        char render(); // Mengembalikan karakter 'K' sebagai representasi objek Horse
-
+		
+    public :
+        Horse();// Konstruktor
+		Horse(int, int);      
+        void Bersuara(); //Menghasilkan suara horse
+		char render();
+		FarmProduct kill();
+        void talk();
+        void eat();
+		
 };
 
 #endif

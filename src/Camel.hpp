@@ -2,17 +2,19 @@
 #define CAMEL_HPP
 
 #include "FarmAnimal.hpp"
-#include "Renderable.hpp"
 
 class Camel : public FarmAnimal, Renderable {
 
     private :
 
     public :     
-        Camel();// Konstruktor 
-        void Sounds(); //Menghasilkan suara camel
-        char render(); //Mengembalikan karakter 'U' sebagai representasi objek Camel
-
+    	Camel();
+        Camel(int, int);// Konstruktor 
+        void Bersuara(); //Menghasilkan suara camel
+        char render();
+        FarmProduct kill();
+        void talk();
+        void eat();
 };
 
 #endif

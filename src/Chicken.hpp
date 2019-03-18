@@ -2,17 +2,19 @@
 #define CHICKEN_HPP
 
 #include "FarmAnimal.hpp"
-#include "Renderable.hpp"
 
 class Chicken : public FarmAnimal, Renderable {
 
     private :
 
     public :     
-        Chicken();// Konstruktor 
-        void Sounds(); //Menghasilkan suara chicken
-        char render(); // mengembalikan karakter 'A' sebagai representasi objek Chicken
-
+    	Chicken();
+        Chicken(int, int);// Konstruktor 
+        void Bersuara(); //Menghasilkan suara chicken
+		char render();
+        FarmProduct kill();
+        void talk();
+        void eat();
 };
 
 #endif
