@@ -1,6 +1,8 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
+#include <iostream>
+#include <string>
 #include "Player.hpp"
 #include "Mixer.hpp"
 #include "LinkedList.hpp"
@@ -12,6 +14,7 @@
 #include "FarmProduct.hpp"
 #include "SideProduct.hpp"
 #include "FarmAnimal.hpp"
+using namespace std;
 
 //kelas Game menyediakan informasi board permainan, posisi pemein, dan mekanisme umum game
 class Game {
@@ -35,6 +38,9 @@ class Game {
 		//setter & getter
 		
 		void setBoard(Cell c); // set item di koordinat x, y
+	
+		// playing
+		void readCommand(); // Membaca perintah dari user dan melaksanakan eksekusi tertentu sesuai perintah tersebut
 
 		
 
