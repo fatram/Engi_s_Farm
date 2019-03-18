@@ -12,7 +12,6 @@ class Well : public Facility, Renderable,Player {
 
 		//Menggunakan fasilitas Well untuk mengisi air pada player 
 		void useFacility(Player& P);
-	v	oid fill_Water(); //Mengisi atribut water player
 };
 
 #endif

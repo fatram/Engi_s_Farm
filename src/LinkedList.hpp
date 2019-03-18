@@ -1,6 +1,7 @@
 #ifndef LINKEDLIST_HPP
 #define LINKEDLIST_HPP
 
+
 //simpul dalam LinkedList, yang menyimpan informasi data yang disimpan dan alamat simpul selanjutnya
 template<class T>
 struct node {

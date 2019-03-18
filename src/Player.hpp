@@ -7,7 +7,9 @@
 class Player {
 	private:
 		int water;			// banyak air yang saat ini dimiliki pemain
-		Product* bag;		// tas yang menyimpan Product
+		LinkedList<Product> bag;		// tas yang menyimpan Product
+		int posX;
+		int posY;
 		const int maxWater;	// maksimum air yang dapat dimiliki
 		const int maxBag;	// kapasitas maksimum tas
 		
@@ -16,7 +18,7 @@ class Player {
 		Player();
 		
 		// user defined ctor, this->water = water, this->maxWater = maxWater, this->maxBag = maxBag, bag dialokasi sebanyak maxBag
-		Player(int water, int maxWater, int maxBag);
+		Player(int posX, int posY, int water, int maxWater, int maxBag);
 		
 		~Player();
 		
@@ -36,6 +38,11 @@ class Player {
 		
 		// mengembalikan maxBag
 		int getMaxBag() const;
+
+		int getPosX(); // mengembalikan posisi X pemain
+		int getPosY(); // mengembalikan posisi Y pemain
+		void setPosX(int x); // set posisi pemain dengan X
+		void setPosY(int y); // set posisi pemain dengan Y
 	
 
 		

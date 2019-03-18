@@ -6,9 +6,20 @@ class Product {
 	private :
 		int harga;
 	public:
-	 	virtual Product(int h);
+		//ctor
+		Product();
+
+		//user-define ctor
+	 	Product(int h);
+
+		 //virtual dtor
 		virtual ~Product();
-		int virtual getHarga() const;
+
+		//setter harga
+		void setHarga(int); 
+
+		//getter harga
+		int getHarga() const;
 };
 
 #endif

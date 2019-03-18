@@ -6,6 +6,7 @@
 
 // kelas Truck, Facility untuk jual Product
 class Truck : public Facility, Renderable {
+
 	private:
 		int CoolDown;
 
