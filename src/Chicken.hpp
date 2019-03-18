@@ -11,7 +11,7 @@ class Chicken : public FarmAnimal, Renderable {
     public :     
         Chicken();// Konstruktor 
         void Sounds(); //Menghasilkan suara chicken
-        char render(); // mengembalikan karakter 'C' sebagai representasi objek Chicken
+        char render(); // mengembalikan karakter 'A' sebagai representasi objek Chicken
 
 };
 
