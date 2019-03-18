@@ -4,7 +4,7 @@
 #include "Product.hpp"
 
 class FarmProduct : public Product {
-
+    public:
 };
 
 #endif

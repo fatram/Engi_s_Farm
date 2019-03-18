@@ -7,17 +7,11 @@
 // kelas Truck, Facility untuk jual Product
 class Truck : public Facility, Renderable {
 
-	private:
-		int CoolDown;
 
 	public:
 		// mengembalikan karakter 'T' sebagai representasi Truck;
 
-		char render();
-		//getter dan setter
-		int getCoolDown();
-		void setCoolDown(int);
-
+		char render();		
 		// Menggunakan fasilitas truk. Apabila cooldown>0 maka tidak bisa menggunakan truck
 		// Apabila cooldown == 0 maka bisa menggunakan truck
 		// Truck menjual semua product dalam bag player 

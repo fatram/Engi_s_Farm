@@ -6,8 +6,11 @@
 
 // kelas abstrak Facility
 class Facility : public Cell {
+
+
 	public:
-		virtual ~Facility() ;
+		virtual ~Facility() ;	
+
 
 		//Fungsi useFacility yang akan diimplementasikan di Mixer Well dan Truck
 		virtual void useFacility(Player& P) = 0;  
