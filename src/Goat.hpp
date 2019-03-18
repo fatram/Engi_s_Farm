@@ -3,7 +3,7 @@
 
 #include "FarmAnimal.hpp"
 
-class Chicken : public FarmAnimal {
+class Goat : public FarmAnimal {
 
     private :
 
