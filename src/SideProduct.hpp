@@ -5,7 +5,8 @@
 
 
 class SideProduct : public Product {
-
+    public :
+        virtual ~SideProduct();
 };
 
 #endif

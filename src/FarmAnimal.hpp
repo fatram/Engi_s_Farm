@@ -16,7 +16,6 @@ class FarmAnimal {
 		virtual void talk() = 0; // mengeluarkan suara tergantung jenis hewan
 		virtual FarmProduct kill() = 0; // mengembalikan FarmProduct tergantung jenis hewan yang di-kill
 		virtual void eat() = 0; // makan dan mengembalikan FarmProduct tergantung jenis hewan
-		
 		// getter setter
 		void setMeatProducing(bool); // set indikator meatProducing dengan input
 		void setEggProducing(bool); // set indikator eggProducing dengan input
