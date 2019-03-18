@@ -3,13 +3,14 @@
 
 #include "FarmAnimal.hpp"
 
-class Chicken : public FarmAnimal {
+class Chicken : public FarmAnimal, Renderable {
 
     private :
 
     public :     
         Chicken();// Konstruktor 
         void Sounds(); //Menghasilkan suara chicken
+        char render(); // mengembalikan karakter 'C' sebagai representasi objek Chicken
 
 };
 
