@@ -5,17 +5,16 @@
 #include "Renderable.hpp"
 
 // kelas Truck, Facility untuk jual Product
-class Truck : public Facility, Renderable {
-
-
+class Truck : public Facility, public Renderable {
 	public:
+		//ctor Truck dengan parameter coolDown
+		Truck(int);
 		// mengembalikan karakter 'T' sebagai representasi Truck;
-
 		char render();		
 		// Menggunakan fasilitas truk. Apabila cooldown>0 maka tidak bisa menggunakan truck
 		// Apabila cooldown == 0 maka bisa menggunakan truck
 		// Truck menjual semua product dalam bag player 
-		void useFacility(Player& P);
+		void interact(Player& P);
 
 
 };

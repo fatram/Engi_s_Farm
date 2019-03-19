@@ -5,15 +5,10 @@
 
 // kelas abstrak Land
 class Land : public Cell {
-	private:
-		bool hasGrass;	// true jika ada rumput di land tersebut, false jika sebaliknya
-		
 	public:
-		Land(int, int); //set hasFacility False
-		void grow(); // set hasGrass jadi true
-		bool getHasGrass(); // mengembalikan hasGrass
-		void setHasGrass(bool); // set hasGrass sesuai input
-		virtual ~Land();// = 0;
+		Land(); //set hasFacility False
+		void interact(Player& P); //Do Nothing		
+		virtual ~Land() = 0; //virtual dtor agar kelas menjadi abstrak
 };
 
 #endif
