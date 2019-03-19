@@ -5,8 +5,9 @@
 
 class Omelette : public SideProduct {
     public:
+        //ctor
         Omelette();
-        //ctor CamelMilk dengan user-define
+        //ctor Omelette dengan user-define
         Omelette(int);
 };
 

@@ -5,8 +5,9 @@
 
 class ChickenEgg : public FarmProduct {
     public:
+        //ctor
         ChickenEgg();
-        //ctor CamelMilk dengan user-define
+        //ctor ChickenEgg dengan user-define
         ChickenEgg(int);
 };
 

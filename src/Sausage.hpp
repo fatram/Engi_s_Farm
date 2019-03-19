@@ -5,8 +5,9 @@
 
 class Sausage : public SideProduct {
     public:
+        //ctor
         Sausage();
-        //ctor CamelMilk dengan user-define
+        //ctor Sausage dengan user-define
         Sausage(int);
 };
 

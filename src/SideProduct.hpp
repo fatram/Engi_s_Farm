@@ -5,8 +5,9 @@
 
 
 class SideProduct : public Product {
-    public :
-        virtual ~SideProduct();
+    public:
+        //pure virtual dtor agar kelas menjadi abstrak
+        virtual ~SideProduct() = 0;
 };
 
 #endif

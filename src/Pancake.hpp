@@ -5,8 +5,9 @@
 
 class Pancake : public SideProduct {
     public:
+        //ctor
         Pancake();
-        //ctor CamelMilk dengan user-define
+        //ctor Pancake dengan user-define
         Pancake(int);
 };
 

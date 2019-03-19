@@ -5,7 +5,8 @@
 
 class FarmProduct : public Product {
     public:
-        virtual ~FarmProduct(); 
+        //pure virtual dtor agar kelas menjadi abstrak
+        virtual ~FarmProduct() = 0; 
 };
 
 #endif

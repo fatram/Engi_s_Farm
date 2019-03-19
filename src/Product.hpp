@@ -3,7 +3,7 @@
 
 // kelas abstrak Product
 class Product {
-	private :
+	protected:
 		int harga;
 	public:
 		//ctor
@@ -12,8 +12,8 @@ class Product {
 		//user-define ctor
 	 	Product(int h);
 
-		 //virtual dtor
-		virtual ~Product();
+		 //pure virtual dtor agar menjadi kelas abstrak
+		virtual ~Product() = 0;
 
 		//setter harga
 		void setHarga(int); 

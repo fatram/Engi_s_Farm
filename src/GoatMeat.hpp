@@ -5,8 +5,9 @@
 
 class GoatMeat : public FarmProduct {
     public:
+        //ctor
         GoatMeat();
-        //ctor CamelMilk dengan user-define
+        //ctor GoatMeat dengan user-define
         GoatMeat(int);
 };
 
