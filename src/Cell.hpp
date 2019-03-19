@@ -17,7 +17,7 @@ class Cell {
 
 		//aksi
 		virtual void interact(Player& P) = 0; //kelas pure virtual yg didefinisikan di kelas anaknya
-		virtual void grow(); //set hasGrass menjadi true. Prequisite: hasFacility = false  
+		void grow(); //set hasGrass menjadi true. Prequisite: hasFacility = false  
 
 		//getter dan setter
 		int getCoolDownTruck();
