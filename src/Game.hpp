@@ -25,11 +25,9 @@ using namespace std;
 class Game {
 	private:
 		Cell*** board; // lapangan permainan, terdiri dari karakter-karakter representasi objek yang ada
-		LinkedList<FarmAnimal> animal;
+		LinkedList<FarmAnimal*> animal; //Daftar animal yg ada di cell direpresentasikan melalui linkedlist
 		const int width; // lebar lapangan
 		const int height; // tinggi lapangan
-		int posX; // posisi koordinat X pemain
-		int posY; // posisi koordinat Y pemain
 		
 	public:
 		// default constructor, ukuran lapangan di set 10*10, posisi awal pemain di 5,5
@@ -41,12 +39,19 @@ class Game {
 		~Game();
 		
 		//setter & getter
-		
-		void setBoard(Cell c); // set item di koordinat x, y
+		int getWidth(); //mengembalikan width
+		void setWidth(int); //set value width
+		int getHeight(); //mengembalikan height
+		void setHeight(int); //set value height
+		LinkedList<FarmAnimal*> getAnimal(); //mengembalikan list dari animal
+		void addAnimal(FarmAnimal* a); //menambah animal a ke list
+		void delAnimal(FarmAnimal* a);  //menghapus animal a dari list
+		void setBoard(int x, int y); // set board di koordinat x, y
 	
 		// playing
-		void readCommand(); // Membaca perintah dari user dan melaksanakan eksekusi tertentu sesuai perintah tersebut
-
+		// Membaca perintah dari user dan melaksanakan eksekusi tertentu sesuai perintah tersebut
+		// Memeriksa apakah di sekeliling player terdapat FarmAnimal atau Facility lalu berinteraksi sesuai command
+		void readCommand(); 
 		
 
 

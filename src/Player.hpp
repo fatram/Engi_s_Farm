@@ -7,9 +7,9 @@
 class Player {
 	private:
 		int water;			// banyak air yang saat ini dimiliki pemain
-		LinkedList<Product> bag;		// tas yang menyimpan Product
-		int posX;
-		int posY;
+		LinkedList<Product*> bag;		// tas yang menyimpan Product
+		int posX; //posisi player (kolom)
+		int posY; //posisi player (baris)
 		const int maxWater;	// maksimum air yang dapat dimiliki
 		const int maxBag;	// kapasitas maksimum tas
 		int money; // Uang yang dimiliki player
@@ -32,7 +32,7 @@ class Player {
 		int getWater() const;
 		
 		// mengembalikan Product pada index i di dalam bag
-		Product getProduct(int i) const;
+		Product* getProduct(int i) const;
 		
 		// mengembalikan maxWater
 		int getMaxWater() const;
@@ -46,9 +46,12 @@ class Player {
 		void setPosY(int y); // set posisi pemain dengan Y
 		int getMoney() const; // mengembalikan money
 		void setMoney(int); // set money sesuai input
-	
+		LinkedList<Product*> getBag(); //mengembalikan list dari product
+
 		void addMoney(int); // tambahkan input ke money saat ini
 
+		void addBag(Product* p); //menambahkan Product p ke dalam bag
+		void delBag(Product* p); //menghapus Product p dari bag 
 		
 };
 
