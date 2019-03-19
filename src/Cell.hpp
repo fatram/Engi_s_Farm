@@ -23,7 +23,7 @@ class Cell {
 		int getCoolDownTruck();
 		void setCoolDownTruck(int);
 		bool getHasFacility();
-		void setHasFacility();
+		void setHasFacility(bool);
 		bool getHasGrass(); // mengembalikan hasGrass
 		void setHasGrass(bool); // set hasGrass sesuai input
 		virtual ~Cell();
