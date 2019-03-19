@@ -2,20 +2,16 @@
 #define CAMEL_HPP
 
 #include "FarmAnimal.hpp"
+#include "CamelMilk.hpp"
 #include "Renderable.hpp"
 
-class Camel : public FarmAnimal, Renderable {
-
-    private :
-
+class Camel : public FarmAnimal, public Renderable {
     public :     
-    	Camel();
+    	Camel(); //default ctor
         Camel(int, int);// Konstruktor 
         void Bersuara(); //Menghasilkan suara camel
-        char render();
-        FarmProduct kill();
-        void talk();
-        void eat();
+        char render(); //Menghasilkan representasi dari Camel
+        FarmProduct* interact(); //Berinteraksi dengan camel menghasilkan CamelMilk
 };
 
 #endif

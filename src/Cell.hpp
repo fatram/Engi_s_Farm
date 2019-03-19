@@ -3,15 +3,21 @@
 
 // kelas abstrak Cell
 class Cell {
-	private:
+	protected:
 		int CoolDownTruck; //Digunakan untuk mengecek fasilitas truk apakah bisa digunakan
-		int cellX,cellY;  
 		bool hasFacility;
 	public:
+		//ctor
+		Cell();
+		//user-define ctor
+		Cell(int,bool);
+		
 		virtual void interact();
 		//getter dan setter
 		int getCoolDownTruck();
 		void setCoolDownTruck(int);
+		bool getHasFacility();
+		void setHasFacility();
 		virtual ~Cell();
 		
 };

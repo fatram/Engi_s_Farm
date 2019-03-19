@@ -3,19 +3,15 @@
 
 #include "FarmAnimal.hpp"
 #include "Renderable.hpp"
+#include "HorseMeat.hpp"
 
-class Horse : public FarmAnimal,Renderable {
-
-    private :
-		
+class Horse : public FarmAnimal,public Renderable {
     public :
         Horse();// Konstruktor
 		Horse(int, int);      
         void Bersuara(); //Menghasilkan suara horse
 		char render();
-		FarmProduct kill();
-        void talk();
-        void eat();
+		FarmProduct* interact(); //Interact pada horse merupakan kill yang mereturn HorseMeat 
 		
 };
 

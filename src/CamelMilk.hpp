@@ -5,6 +5,7 @@
 
 class CamelMilk : public FarmProduct {
     public:
+        //ctor
         CamelMilk();
         //ctor CamelMilk dengan user-define
         CamelMilk(int);

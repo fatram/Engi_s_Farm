@@ -3,19 +3,15 @@
 
 #include "FarmAnimal.hpp"
 #include "Renderable.hpp"
+#include "DuckEgg.hpp"
 
-class Chicken : public FarmAnimal, Renderable {
-
-    private :
-
+class Duck : public FarmAnimal, public Renderable {
     public :     
     	Duck();
         Duck(int, int);// Konstruktor 
         void Bersuara(); //Menghasilkan suara Duck
 		char render();
-		FarmProduct kill();
-        void talk();
-        void eat();
+		FarmProduct* interact(); //Interact dengan duck menghasilkan DuckEgg
 };
 
 #endif

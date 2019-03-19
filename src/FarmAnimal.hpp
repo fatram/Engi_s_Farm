@@ -16,10 +16,7 @@ class FarmAnimal {
 		
 	public:
 		 // user-defined ctor meatProducing = meat, eggProducing = egg, milkProducing = milk, lifeSpan = life, hungry = life, posX = x, posY = y 
-		FarmProduct(bool meat, bool egg, bool milk, int life, int x, int y);
-		virtual void talk() = 0; // mengeluarkan suara tergantung jenis hewan
-		virtual FarmProduct kill() = 0; // mengembalikan FarmProduct tergantung jenis hewan yang di-kill
-		virtual void eat() = 0; // makan dan mengembalikan FarmProduct tergantung jenis hewan
+		FarmAnimal(bool meat, bool egg, bool milk, int life, int x, int y);		
 		// getter setter
 		void setMeatProducing(bool); // set indikator meatProducing dengan input
 		void setEggProducing(bool); // set indikator eggProducing dengan input
@@ -43,6 +40,7 @@ class FarmAnimal {
 		void makan(); //procedure animal memakan grass
 		bool isHungry(); //Mengecek apakah animal dalam keadaan hungry atau tidak
 		void updateHungry(); //mengupdate hungry tiap tick
+		virtual FarmProduct* interact() = 0; // mengembalikan FarmProduct tergantung jenis hewan yang berinteraksi
 };
 
 #endif

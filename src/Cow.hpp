@@ -3,19 +3,15 @@
 
 #include "FarmAnimal.hpp"
 #include "Renderable.hpp"
+#include "CowMilk.hpp"
 
-class Cow : public FarmAnimal, Renderable {
-
-    private :
-
+class Cow : public FarmAnimal,public Renderable {
     public :
         Cow();
 		Cow(int, int); //Konstruktor
         void Bersuara(); //Menghasilkan suara cow
 		char render();
-		FarmProduct kill();
-        void talk();
-        void eat();
+		FarmProduct* interact(); //interaksi dengan cow menghasilkan CowMilk
 };
 
 #endif
