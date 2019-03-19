@@ -24,7 +24,7 @@ using namespace std;
 //kelas Game menyediakan informasi board permainan, posisi pemein, dan mekanisme umum game
 class Game {
 	private:
-		char** board; // lapangan permainan, terdiri dari karakter-karakter representasi objek yang ada
+		Cell*** board; // lapangan permainan, terdiri dari karakter-karakter representasi objek yang ada
 		LinkedList<FarmAnimal> animal;
 		const int width; // lebar lapangan
 		const int height; // tinggi lapangan
