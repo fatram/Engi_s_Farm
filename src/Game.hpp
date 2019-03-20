@@ -44,14 +44,15 @@ class Game {
 		int getHeight(); //mengembalikan height
 		void setHeight(int); //set value height
 		LinkedList<FarmAnimal*> getAnimal(); //mengembalikan list dari animal
-		void addAnimal(FarmAnimal* a); //menambah animal a ke list
-		void delAnimal(FarmAnimal* a);  //menghapus animal a dari list
 		void setBoard(int x, int y); // set board di koordinat x, y
 	
 		// playing
 		// Membaca perintah dari user dan melaksanakan eksekusi tertentu sesuai perintah tersebut
 		// Memeriksa apakah di sekeliling player terdapat FarmAnimal atau Facility lalu berinteraksi sesuai command
 		void readCommand(); 
+		void addAnimal(FarmAnimal* a); //menambah animal a ke list
+		void addAnimal(FarmAnimal* a, int i); //menambah animal a ke list pada indeks i
+		void delAnimal(FarmAnimal* a);  //menghapus animal a dari list
 		
 
 

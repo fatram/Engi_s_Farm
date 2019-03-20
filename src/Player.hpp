@@ -2,6 +2,7 @@
 #define PLAYER_HPP
 
 #include "Product.hpp"
+#include "LinkedList.hpp"
 
 // kelas Player, representasi pemain dalam permainan
 class Player {
@@ -51,6 +52,10 @@ class Player {
 		void addMoney(int); // tambahkan input ke money saat ini
 
 		void addBag(Product* p); //menambahkan Product p ke dalam bag
+
+		//method overloading, menambahkan Product p ke dalam bag pada indeks i
+		void addBag(Product* p, int i); 
+
 		void delBag(Product* p); //menghapus Product p dari bag 
 		
 };

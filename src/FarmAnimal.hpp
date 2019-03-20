@@ -36,7 +36,7 @@ class FarmAnimal {
 		bool isMilkProducing(); // true jika milkProducing bernilai true
 		
 		//Berkaitan dengan aksi yg dilakukan animal
-		virtual void Bersuara() = 0; //Suara animal
+		virtual void Bersuara(); //Suara animal, akan dioverride di subclassnya
 		void makan(); //procedure animal memakan grass
 		bool isHungry(); //Mengecek apakah animal dalam keadaan hungry atau tidak
 		void updateHungry(); //mengupdate hungry tiap tick
