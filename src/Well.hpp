@@ -3,6 +3,7 @@
 
 #include "Facility.hpp"
 #include "Renderable.hpp"
+#include "Player.hpp"
 
 // kelas Well, Facility untuk ambil air
 class Well : public Facility, public Renderable{
