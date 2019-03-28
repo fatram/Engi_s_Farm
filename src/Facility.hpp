@@ -7,7 +7,6 @@
 class Facility : public Cell {
 	public:
 		Facility(); // set hasFasility true;
-		virtual ~Facility() ;
 
 		//Fungsi interact yang akan diimplementasikan di Mixer Well dan Truck
 		virtual void interact(Player& P) = 0;  
