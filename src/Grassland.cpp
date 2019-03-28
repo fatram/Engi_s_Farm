@@ -1,0 +1,3 @@
+char Grassland::render(){
+  return '-'
+ }
