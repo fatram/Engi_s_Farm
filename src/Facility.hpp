@@ -6,7 +6,7 @@
 // kelas abstrak Facility
 class Facility : public Cell {
 	public:
-		Facility(int, int); // set hasFasility true;
+		Facility(); // set hasFasility true;
 		virtual ~Facility() ;
 
 		//Fungsi interact yang akan diimplementasikan di Mixer Well dan Truck
