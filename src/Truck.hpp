@@ -3,7 +3,6 @@
 
 #include "Facility.hpp"
 #include "Renderable.hpp"
-#include "Player.hpp"
 
 // kelas Truck, Facility untuk jual Product
 class Truck : public Facility, public Renderable {
