@@ -20,11 +20,11 @@ class Cell {
 		void grow(); //set hasGrass menjadi true. Prequisite: hasFacility = false  
 
 		//getter dan setter
-		int getCoolDownTruck();
+		int getCoolDownTruck() const;
 		void setCoolDownTruck(int);
-		bool getHasFacility();
+		bool getHasFacility() const;
 		void setHasFacility(bool);
-		bool getHasGrass(); // mengembalikan hasGrass
+		bool getHasGrass() const; // mengembalikan hasGrass
 		void setHasGrass(bool); // set hasGrass sesuai input
 		
 };
