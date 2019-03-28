@@ -2,7 +2,6 @@
 #define FACILITY_HPP
 
 #include "Cell.hpp"
-#include "Player.hpp"
 
 // kelas abstrak Facility
 class Facility : public Cell {
