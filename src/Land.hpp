@@ -2,7 +2,6 @@
 #define LAND_HPP
 
 #include "Cell.hpp"
-#inlcude "Player.hpp"
 
 // kelas abstrak Land
 class Land : public Cell {
