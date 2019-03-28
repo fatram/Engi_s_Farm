@@ -39,13 +39,13 @@ class Player {
 		// mengembalikan maxBag
 		int getMaxBag() const;
 
-		int getPosX(); // mengembalikan posisi X pemain
-		int getPosY(); // mengembalikan posisi Y pemain
+		int getPosX() const; // mengembalikan posisi X pemain
+		int getPosY() const; // mengembalikan posisi Y pemain
 		void setPosX(int x); // set posisi pemain dengan X
 		void setPosY(int y); // set posisi pemain dengan Y
 		int getMoney() const; // mengembalikan money
 		void setMoney(int); // set money sesuai input
-		LinkedList<Product*> getBag(); //mengembalikan list dari product
+		LinkedList<Product*> getBag() const; //mengembalikan list dari product
 
 		void addMoney(int); // tambahkan input ke money saat ini
 
