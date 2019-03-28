@@ -6,7 +6,7 @@
 // kelas abstrak Cell
 class Cell {
 	protected:
-		int CoolDownTruck; //Digunakan untuk mengecek fasilitas truk apakah bisa digunakan
+		int coolDownTruck; //Digunakan untuk mengecek fasilitas truk apakah bisa digunakan
 		bool hasFacility;
 		bool hasGrass;
 	public:
