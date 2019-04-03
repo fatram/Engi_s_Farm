@@ -9,6 +9,7 @@ class Sausage : public SideProduct {
         Sausage();
         //ctor Sausage dengan user-define
         Sausage(int);
+        string toString();
 };
 
 #endif

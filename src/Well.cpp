@@ -5,5 +5,5 @@ char Well::render() {
 }
 
 void Well::interact(Player& P){
-  P.setWater(P.getMaxWater);
+  P.setWater(P.getMaxWater());
 }

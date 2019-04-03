@@ -9,6 +9,7 @@ class ChickenEgg : public FarmProduct {
         ChickenEgg();
         //ctor ChickenEgg dengan user-define
         ChickenEgg(int);
+        string toString();
 };
 
 #endif

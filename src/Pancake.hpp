@@ -9,6 +9,7 @@ class Pancake : public SideProduct {
         Pancake();
         //ctor Pancake dengan user-define
         Pancake(int);
+        string toString();
 };
 
 #endif

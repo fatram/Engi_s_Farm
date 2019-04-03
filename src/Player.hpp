@@ -31,7 +31,7 @@ class Player {
 		int getWater() const;
 		
 		// mengembalikan Product pada index i di dalam bag
-		Product* getProduct(int i) const;
+		Product* getProduct(int i); // revisi const;
 		
 		// mengembalikan maxWater
 		int getMaxWater() const;

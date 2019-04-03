@@ -9,6 +9,8 @@ class CamelMilk : public FarmProduct {
         CamelMilk();
         //ctor CamelMilk dengan user-define
         CamelMilk(int);
+
+        string toString();
 };
 
 #endif

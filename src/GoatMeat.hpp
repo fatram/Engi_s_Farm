@@ -9,6 +9,7 @@ class GoatMeat : public FarmProduct {
         GoatMeat();
         //ctor GoatMeat dengan user-define
         GoatMeat(int);
+        string toString();
 };
 
 #endif

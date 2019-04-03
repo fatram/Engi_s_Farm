@@ -5,11 +5,11 @@
 
 // kelas abstrak FarmAnimal
 class FarmAnimal {
-	private:
+	protected:
 		bool meatProducing; // indikator penghasil daging
 		bool eggProducing; // indikator penghasil telur
 		bool milkProducing; // indikator penghasil susu
-		const int lifeSpan; // masa hidup hewan
+		const int lifeSpan; // masa hidup hewan perubahan pertama
 		int hungry; // akan menyebebkan animal hungry jika nilainya negatif
 		int posX; // posisi X pada papan permainan
 		int posY; // posisi Y pada papan permainan

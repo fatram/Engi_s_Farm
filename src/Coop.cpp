@@ -1,5 +1,5 @@
 #include "Coop.hpp"
 
-char Copp::render(){
+char Coop::render(){
   return 'o';
 }

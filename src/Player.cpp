@@ -22,7 +22,7 @@ int Player::getWater() const {
 	return water;
 }
 
-Product* Player::getProduct(int i) const {
+Product* Player::getProduct(int i) {
 	return bag.get(i);
 }
 

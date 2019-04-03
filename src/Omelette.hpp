@@ -9,6 +9,7 @@ class Omelette : public SideProduct {
         Omelette();
         //ctor Omelette dengan user-define
         Omelette(int);
+        string toString();
 };
 
 #endif
