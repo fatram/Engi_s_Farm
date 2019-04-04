@@ -9,7 +9,7 @@ FarmAnimal::FarmAnimal(bool meat, bool egg, bool milk, int life, int x, int y):l
     milkProducing = milk;
     posX = x;
     posY = y;
-    hungry = 5;
+    hungry = lifeSpan;
 }	
 
 void FarmAnimal::setMeatProducing(bool meat) { meatProducing = meat; }
@@ -27,7 +27,7 @@ bool FarmAnimal::getMilkProducing() { return milkProducing; }
 int FarmAnimal::getLifeSpan() { return lifeSpan; }
 
 int FarmAnimal::getPosX() const { return posX;}
-
+// = new Camel();
 int FarmAnimal::getPosY() const { return posY; }
 
 void FarmAnimal::setPosX(int x){ posX = x;}
