@@ -46,7 +46,8 @@ class Game {
 		void setWidth(int); //set value width
 		int getHeight(); //mengembalikan height
 		void setHeight(int); //set value height
-		LinkedList<FarmAnimal*> getAnimal(); //mengembalikan list dari animal
+		FarmAnimal* getAnimal(int ); //mengembalikan list dari animal
+		int GetAnimalSize();
 		void setBoard(int x, int y, Cell*); // set board di koordinat x, y
 	
 		// playing

@@ -58,10 +58,6 @@ void Game::setHeight(int h){
 	this->height = h;
 }
 
-LinkedList<FarmAnimal*> Game::getAnimal(){
-	return animal;
-}
-
 void Game::setBoard(int x, int y, Cell* C){
 	board[x][y] = C;
 }
@@ -74,7 +70,12 @@ void Game::addAnimal(FarmAnimal* a){
 	animal.add(a);
 
 }
-
+FarmAnimal* Game::getAnimal(int i){
+	return animal.get(i);
+}
+int Game::GetAnimalSize(){
+	return animal.size();
+}
 void Game::delAnimal(FarmAnimal* a){
 	animal.remove(a);
 }
