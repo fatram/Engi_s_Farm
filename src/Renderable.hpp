@@ -5,6 +5,7 @@
 class Renderable {
 	public:
 		virtual char render() = 0;
+		virtual ~Renderable();
 };
 
 #endif
