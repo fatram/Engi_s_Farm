@@ -53,3 +53,5 @@ bool FarmAnimal::isHungry(){
 void FarmAnimal::updateHungry(){
     hungry--;
 }
+
+FarmAnimal::~FarmAnimal(){}

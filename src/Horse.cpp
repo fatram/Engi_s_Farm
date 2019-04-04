@@ -14,12 +14,12 @@ void Horse::Bersuara() //Menghasilkan suara Horse
     cout<<"Hiya hiya"<<endl; 
 }
 
-char render() //Menghasilkan representasi dari Horse
+char Horse::render() //Menghasilkan representasi dari Horse
 {
     return 'H';
 }
 
-FarmProduct* interact() //Berinteraksi dengan Horse menghasilkan HorseMeat
+FarmProduct* Horse::interact() //Berinteraksi dengan Horse menghasilkan HorseMeat
 {
-    return &HorseMeat();
-}
+    return new HorseMeat();
+} 

@@ -14,12 +14,13 @@ void Cow::Bersuara() //Menghasilkan suara Cow
     cout<<"Mooooo"<<endl; 
 }
 
-char render() //Menghasilkan representasi dari Cow
+char Cow::render() //Menghasilkan representasi dari Cow
 {
     return 'S';
 }
 
-FarmProduct* interact() //Berinteraksi dengan Cow menghasilkan CowMilk
+
+FarmProduct* Cow::interact() //Berinteraksi dengan Cow menghasilkan CowMilk
 {
-    return &CowMilk();
-}
+    return new CowMilk();
+} 

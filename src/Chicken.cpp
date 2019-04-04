@@ -14,12 +14,13 @@ void Chicken::Bersuara() //Menghasilkan suara Chicken
     cout<<"Petok Petok"<<endl; 
 }
 
-char render() //Menghasilkan representasi dari Chicken
+char Chicken::render() //Menghasilkan representasi dari Chicken
 {
     return 'A';
 }
 
-FarmProduct* interact() //Berinteraksi dengan Chicken menghasilkan ChickenEgg
+
+FarmProduct* Chicken::interact() //Berinteraksi dengan Chicken menghasilkan ChickenEgg
 {
-    return &ChickenEgg();
-}
+    return new ChickenEgg();
+} 

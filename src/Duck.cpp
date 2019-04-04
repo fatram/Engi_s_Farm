@@ -14,12 +14,12 @@ void Duck::Bersuara() //Menghasilkan suara Duck
     cout<<"Kwek Kwek"<<endl; 
 }
 
-char render() //Menghasilkan representasi dari Duck
+char Duck::render() //Menghasilkan representasi dari Duck
 {
     return 'B';
 }
 
-FarmProduct* interact() //Berinteraksi dengan Duck menghasilkan DuckEgg
+FarmProduct* Duck::interact() //Berinteraksi dengan Duck menghasilkan DuckEgg
 {
-    return &DuckEgg();
-}
+    return new DuckEgg();
+} 

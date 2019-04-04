@@ -17,6 +17,7 @@ class FarmAnimal {
 	public:
 		 // user-defined ctor meatProducing = meat, eggProducing = egg, milkProducing = milk, lifeSpan = life, hungry = life, posX = x, posY = y 
 		FarmAnimal(bool meat, bool egg, bool milk, int life, int x, int y);		
+		virtual ~FarmAnimal();
 		// getter setter
 		void setMeatProducing(bool); // set indikator meatProducing dengan input
 		void setEggProducing(bool); // set indikator eggProducing dengan input

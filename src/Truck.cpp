@@ -13,6 +13,6 @@ void Truck::interact(Player& P) {
   while(!P.getBag().isEmpty()){
     product = P.getBag().get(0);
     P.addMoney(product->getHarga());
-    P.getBag().remove(product);
+    P.delBag(product);
   }
 }

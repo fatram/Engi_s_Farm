@@ -14,12 +14,13 @@ void Goat::Bersuara() //Menghasilkan suara Goat
     cout<<"Mbeeee"<<endl; 
 }
 
-char render() //Menghasilkan representasi dari Goat
+char Goat::render() //Menghasilkan representasi dari Goat
 {
     return 'K';
 }
 
-FarmProduct* interact() //Berinteraksi dengan Goat menghasilkan GoatMeat
+
+FarmProduct* Goat::interact() //Berinteraksi dengan Goat menghasilkan GoatMeat
 {
-    return &GoatMeat();
-}
+    return new GoatMeat();
+} 

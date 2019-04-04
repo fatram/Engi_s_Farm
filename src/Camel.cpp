@@ -14,12 +14,12 @@ void Camel::Bersuara() //Menghasilkan suara camel
     cout<<"Owe owe"<<endl; 
 }
 
-char render() //Menghasilkan representasi dari Camel
+char Camel::render() //Menghasilkan representasi dari Camel
 {
     return 'U';
 }
 
-FarmProduct* interact() //Berinteraksi dengan camel menghasilkan CamelMilk
+FarmProduct* Camel::interact() //Berinteraksi dengan camel menghasilkan CamelMilk
 {
-    return &CamelMilk();
+    return new CamelMilk();
 }
