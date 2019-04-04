@@ -19,6 +19,15 @@
 #include "Duck.hpp"
 #include "Goat.hpp"
 #include "Horse.hpp"
+#include "CamelMilk.hpp"
+#include "ChickenEgg.hpp"
+#include "CowMilk.hpp"
+#include "DuckEgg.hpp"
+#include "GoatMeat.hpp"
+#include "HorseMeat.hpp"
+#include "Pancake.hpp"
+#include "Sausage.hpp"
+#include "Omelette.hpp"
 
 using namespace std;
 

@@ -10,8 +10,8 @@ char Truck::render() {
 
 void Truck::interact(Player& P) {
   Product* product;
-  while(!P.getBag().isEmpty()){
-    product = P.getBag().get(0);
+  while(!P.getBagSize() == 0){
+    product = P.getProduct(0);//Bag().get(0);
     P.addMoney(product->getHarga());
     P.delBag(product);
   }

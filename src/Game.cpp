@@ -8,11 +8,6 @@ Game::Game(){
 	for (int i=0;i<this->height;i++){
 		board[i] = new Cell*[this->width ];
 	}
-	for (int i=0;i<this->height;i++){
-		for(int j=0;i<this->width ;j++){
-			board[i][j]= new Grassland(false,true);
-		}
-	}
 }
 	
 Game::Game(int width, int height){
@@ -22,11 +17,6 @@ Game::Game(int width, int height){
 	board = new Cell**[this->height];
 	for (int i=0;i<this->height;i++){
 		board[i] = new Cell*[this->width ];
-	}
-	for (int i=0;i<this->height;i++){
-		for(int j=0;i<this->width ;j++){
-			board[i][j]= new Grassland(false,true);
-		}
 	}
 }
 
