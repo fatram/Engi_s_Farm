@@ -45,7 +45,9 @@ class Player {
 		void setPosY(int y); // set posisi pemain dengan Y
 		int getMoney() const; // mengembalikan money
 		void setMoney(int); // set money sesuai input
-		LinkedList<Product*> getBag() const; //mengembalikan list dari product
+		//LinkedList<Product*> getBag(); //mengembalikan list dari product
+
+		int getBagSize();
 
 		void addMoney(int); // tambahkan input ke money saat ini
 

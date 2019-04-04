@@ -58,8 +58,9 @@ void Player::setMoney(int m) {
 	money = m;
 }
 
-LinkedList<Product*> Player::getBag() const {
-	return bag;
+
+int Player::getBagSize(){
+	return bag.size();
 }
 
 void Player::addMoney(int m) {
