@@ -8,6 +8,7 @@
 class Grassland : public Land, public Renderable {
 	public:
 		// Mengembalikan karakter '-' sebagai representasi Grassland
+		Grassland(bool hf, bool hg);
 		char render();
 };
 
