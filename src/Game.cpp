@@ -23,7 +23,7 @@ Game::Game(){
                 //inisialisasi Barn
                 board[i][j] = new Barn();
             }
-			else if (i == 1 && j == 10){
+			else if (i == 0 && j == 10){
                 //inisialisasi Truck
                 board[i][j] = new Truck();
             }
