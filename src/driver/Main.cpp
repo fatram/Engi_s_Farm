@@ -1,8 +1,20 @@
 #include "../Game.hpp"
 
 int main() {
-    Game G(11,10,6,10); 
+    Game G(3,2,0,0);
+    Cell *c;
+    cout<<G.getHeight()<<endl;
+    cout<<G.getWidth()<<endl; 
+    //c = G.getBoard(0,0);
+    //G.board[0][0] =new Barn();
+    //Barn B;
     G.setBoard(0,0,new Barn());
+    //G.setBoard(0,1,new Coop());
+    //G.setBoard(0,2,new Grassland());
+    //G.setBoard(1,0,new Truck());
+    //G.setBoard(1,1,new Well());
+    //G.setBoard(1,2,new Mixer());
+    //G.setBoard(0,0,&B);
     /*
     //Inisialisasi board gameplay
     for (int i=0; i<G.getHeight(); i++){

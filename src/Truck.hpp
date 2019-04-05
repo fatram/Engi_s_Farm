@@ -7,6 +7,7 @@
 class Truck : public Facility{
 	public:
 		//ctor Truck dengan parameter coolDown
+		Truck();
 		Truck(int);
 		// mengembalikan karakter 'T' sebagai representasi Truck;
 		char render();		

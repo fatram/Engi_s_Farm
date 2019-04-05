@@ -29,13 +29,12 @@ Game::Game(int width, int height,int pX, int pY){
 
 Game::~Game(){
 	for(int i =  0; i <this->height;i++){
-		for(int j =0; j<this->width;j++){
-			delete [] board[i][j];
-		}
-		delete [] board[i];
+		delete [] *board[i];
 	}
-	delete [] board;
-	
+		//delete [] board[i];
+	//}
+	delete [] *board;
+	cout <<"dtor"<<endl;
 }
 		
 
@@ -56,7 +55,12 @@ void Game::setHeight(int h){
 }
 
 void Game::setBoard(int x, int y, Cell* C){
-	board[x][y] = C;
+	cout<<C->render()<<endl;
+	//board[x][y] = C;
+}
+
+Cell* Game::getBoard(int x, int y){
+	return board[x][y];
 }
 
 void Game::readCommand(string c){

@@ -1,5 +1,8 @@
 #include "Truck.hpp"
 
+Truck::Truck(){
+  setCoolDownTruck(10);
+}
 Truck::Truck(int cd){
   setCoolDownTruck(cd);
 }

@@ -59,7 +59,8 @@ class Game {
 		void setHeight(int); //set value height
 		FarmAnimal* getAnimal(int ); //mengembalikan list dari animal
 		int GetAnimalSize();
-		void setBoard(int x, int y, Cell*); // set board di koordinat x, y
+		void setBoard(int x, int y, Cell* C); // set board di koordinat x, y
+		Cell* getBoard(int x,int y);
 		int getTick();
 		int searchAnimal(int,int);
 	

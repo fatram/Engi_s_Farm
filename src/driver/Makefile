@@ -6,3 +6,6 @@ player:
 
 Main:
 	g++ Main.cpp ../Barn.cpp ../Camel.cpp ../CamelMilk.cpp ../Cell.cpp ../Chicken.cpp ../ChickenEgg.cpp ../Coop.cpp ../Cow.cpp ../CowMilk.cpp ../Duck.cpp ../DuckEgg.cpp ../Facility.cpp ../FarmAnimal.cpp ../FarmProduct.cpp ../Game.cpp ../Goat.cpp ../GoatMeat.cpp ../Grassland.cpp ../Horse.cpp ../HorseMeat.cpp ../Land.cpp ../Mixer.cpp ../Omelette.cpp ../Pancake.cpp ../Player.cpp ../Product.cpp ../Renderable.cpp ../Sausage.cpp ../SideProduct.cpp ../Truck.cpp ../Well.cpp -o main
+
+cell:
+	g++ Cell.cpp ../Cell.cpp ../Land.cpp ../Facility.cpp ../Truck.cpp ../Well.cpp ../Mixer.cpp ../Barn.cpp ../Grassland.cpp ../Coop.cpp ../Renderable.cpp ../SideProduct.cpp ../Sausage.cpp ../Pancake.cpp ../Omelette.cpp ../Product.cpp ../Player.cpp -o m
