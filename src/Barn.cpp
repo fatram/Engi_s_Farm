@@ -1,5 +1,6 @@
 #include "Barn.hpp"
 
 char Barn::render(){
-  return 'x';
+  if (hasGrass) return '@';
+  else return 'x';
 }

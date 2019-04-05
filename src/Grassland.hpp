@@ -7,7 +7,7 @@
 class Grassland : public Land {
 	public:
 		// Mengembalikan karakter '-' sebagai representasi Grassland
-		Grassland(bool hf, bool hg);
+		//Grassland(bool hf, bool hg);
 		char render();
 };
 

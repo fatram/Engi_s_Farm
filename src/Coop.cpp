@@ -1,5 +1,6 @@
 #include "Coop.hpp"
 
 char Coop::render(){
-  return 'o';
+  if (hasGrass) return '#';
+  else return 'o';
 }
