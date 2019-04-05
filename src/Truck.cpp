@@ -18,7 +18,10 @@ void Truck::interact(Player& P) {
       product = P.getProduct(0);//Bag().get(0);
       P.addMoney(product->getHarga());
       P.delBag(product);
+      coolDownTruck = 0;
     }
   }
-  else cout<<"Truck belum bisa digunakan"<<endl;
+  else {
+    cout<<"Truck belum bisa digunakan"<<endl;   
+  }
 }

@@ -49,11 +49,9 @@ void Mixer::interact(Player& P){
 					&& p2->toString().compare("Cow Milk") == 0) ||
 					(p2->toString().compare("Chicken Egg") == 0
 					&& p1->toString().compare("Cow Milk") == 0)){
-						Pancake pc;
-						Product * ppc = &pc;
 						P.delBag(p1);
 						P.delBag(p2);
-						P.addBag(ppc);
+						P.addBag(new Pancake());
 						cout << "Pancake berhasil dibuat" << endl;
 				} else {
 					cout << "Pancake gagal dibuat" << endl;
@@ -63,11 +61,9 @@ void Mixer::interact(Player& P){
 					&& p2->toString().compare("Camel Milk") == 0) ||
 					(p2->toString().compare("Duck Egg") == 0
 					&& p1->toString().compare("Camel Milk") == 0)){
-						Omelette o;
-						Product * ppc = &o;
 						P.delBag(p1);
 						P.delBag(p2);
-						P.addBag(ppc);
+						P.addBag(new Omelette());
 						cout << "Omelette berhasil dibuat" << endl;
 				} else {
 					cout << "Omelette gagal dibuat" << endl;
@@ -77,11 +73,9 @@ void Mixer::interact(Player& P){
 					&& p2->toString().compare("Horse Meat") == 0) ||
 					(p2->toString().compare("Goat Meat") == 0
 					&& p1->toString().compare("Horse Meat") == 0)){
-						Sausage s;
-						Product * ppc = &s;
 						P.delBag(p1);
 						P.delBag(p2);
-						P.addBag(ppc);
+						P.addBag(new Sausage());
 						cout << "Sausage berhasil dibuat" << endl;
 				} else {
 					cout << "Sausage gagal dibuat" << endl;
