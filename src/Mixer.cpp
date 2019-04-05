@@ -29,9 +29,9 @@ void Mixer::interact(Player& P){
 			cout << "Tolong masukkan angka 1, 2, atau 3" << endl;
 		}
 	}while(choice != 1 && choice != 2 && choice != 3);
-	if(P.getBag().size() > 0){
+	if(P.getBagSize() > 0){
 		cout << "Item di dalam bag : " << endl;
-		for(int i = 0; i < P.getBag().size(); i++){
+		for(int i = 0; i < P.getBagSize(); i++){
 			cout << (i+1) + ". " + P.getProduct(i)->toString() << endl;
 		}
 		cout << "Pilih item yang akan digunakan (e.g 1 2 (Artinya item nomor 1 dan 2) : "<<endl;
@@ -39,7 +39,7 @@ void Mixer::interact(Player& P){
 		int c2;
 		cin >> c1;
 		cin >> c2;
-		if(c1 > P.getBag().size() || c2 > P.getBag().size()){
+		if(c1 > P.getBagSize() || c2 > P.getBagSize()){
 			cout << "Item yang dipilih tidak tersedia" << endl;
 		} else {
 			Product * p1 = P.getProduct(c1-1);

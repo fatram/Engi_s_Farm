@@ -39,13 +39,15 @@ class Game {
 		int width; // lebar lapangan
 		int height; // tinggi lapangan
 		int tick;
-		string command;
+		//string command;
+		//New
+		Player P;
 		
 	public:
 		// default constructor, ukuran lapangan di set 10*10, posisi awal pemain di 5,5
 		Game();
 		// user defined ctor, ukuran lapangan di set width*height, posisi awal pemain di posX,posY
-		Game(int width, int height);
+		Game(int width, int height, int pX, int pY);
 
 		//dtor
 		~Game();
@@ -58,6 +60,8 @@ class Game {
 		FarmAnimal* getAnimal(int ); //mengembalikan list dari animal
 		int GetAnimalSize();
 		void setBoard(int x, int y, Cell*); // set board di koordinat x, y
+		int getTick();
+		int searchAnimal(int,int);
 	
 		// playing
 		// Membaca perintah dari user dan melaksanakan eksekusi tertentu sesuai perintah tersebut
@@ -65,6 +69,11 @@ class Game {
 		void readCommand(string); 
 		void addAnimal(FarmAnimal* a); //menambah animal a ke list
 		void delAnimal(FarmAnimal* a);  //menghapus animal a dari list
+
+
+		//New
+		void updateTick();
+		void printBoard();		
 		
 
 

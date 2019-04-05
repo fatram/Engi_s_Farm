@@ -2,10 +2,9 @@
 #define MIXER_HPP
 
 #include "Facility.hpp"
-#include "Renderable.hpp"
 
 // kelas Mixer, Facility untuk membuat SideProduct
-class Mixer : public Facility, public Renderable {
+class Mixer : public Facility {
 	//friend SideProduct;
 	public:
 		// mengembalikan karakter 'M' sebagai representasi Mixer

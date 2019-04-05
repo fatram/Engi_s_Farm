@@ -2,9 +2,10 @@
 #define CELL_HPP
 
 #include "Player.hpp"
+#include "Renderable.hpp"
 
 // kelas abstrak Cell
-class Cell {
+class Cell: public Renderable{
 	protected:
 		int coolDownTruck; //Digunakan untuk mengecek fasilitas truk apakah bisa digunakan
 		bool hasFacility;

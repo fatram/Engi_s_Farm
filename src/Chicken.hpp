@@ -2,10 +2,9 @@
 #define CHICKEN_HPP
 
 #include "FarmAnimal.hpp"
-#include "Renderable.hpp"
 #include "ChickenEgg.hpp"
 
-class Chicken : public FarmAnimal, public Renderable {
+class Chicken : public FarmAnimal {
     public :     
     	Chicken();
         Chicken(int, int);// Konstruktor 

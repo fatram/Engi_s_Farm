@@ -3,9 +3,8 @@
 
 #include "FarmAnimal.hpp"
 #include "GoatMeat.hpp"
-#include "Renderable.hpp"
 
-class Goat : public FarmAnimal, public Renderable {
+class Goat : public FarmAnimal {
     public :     
     	Goat();
         Goat(int, int);// Konstruktor 

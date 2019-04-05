@@ -2,10 +2,9 @@
 #define DUCK_HPP
 
 #include "FarmAnimal.hpp"
-#include "Renderable.hpp"
 #include "DuckEgg.hpp"
 
-class Duck : public FarmAnimal, public Renderable {
+class Duck : public FarmAnimal{
     public :     
     	Duck();
         Duck(int, int);// Konstruktor 

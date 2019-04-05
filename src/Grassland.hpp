@@ -2,10 +2,9 @@
 #define GRASSLAND_HPP
 
 #include "Land.hpp"
-#include "Renderable.hpp"
 
 // kelas GrassLand, Land untuk hewan penghasil susu
-class Grassland : public Land, public Renderable {
+class Grassland : public Land {
 	public:
 		// Mengembalikan karakter '-' sebagai representasi Grassland
 		Grassland(bool hf, bool hg);

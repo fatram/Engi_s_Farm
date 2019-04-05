@@ -2,10 +2,9 @@
 #define HORSE_HPP
 
 #include "FarmAnimal.hpp"
-#include "Renderable.hpp"
 #include "HorseMeat.hpp"
 
-class Horse : public FarmAnimal,public Renderable {
+class Horse : public FarmAnimal{
     public :
         Horse();// Konstruktor
 		Horse(int, int);      

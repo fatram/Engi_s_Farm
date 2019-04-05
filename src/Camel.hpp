@@ -3,9 +3,8 @@
 
 #include "FarmAnimal.hpp"
 #include "CamelMilk.hpp"
-#include "Renderable.hpp"
 
-class Camel : public FarmAnimal, public Renderable {
+class Camel : public FarmAnimal {
     public :     
     	Camel(); //default ctor
         Camel(int, int);// Konstruktor 

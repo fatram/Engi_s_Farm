@@ -2,10 +2,9 @@
 #define COW_HPP
 
 #include "FarmAnimal.hpp"
-#include "Renderable.hpp"
 #include "CowMilk.hpp"
 
-class Cow : public FarmAnimal,public Renderable {
+class Cow : public FarmAnimal {
     public :
         Cow();
 		Cow(int, int); //Konstruktor

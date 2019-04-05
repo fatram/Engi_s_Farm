@@ -2,9 +2,10 @@
 #define FARMANIMAL_HPP
 
 #include "FarmProduct.hpp"
+#include "Renderable.hpp"
 
 // kelas abstrak FarmAnimal
-class FarmAnimal {
+class FarmAnimal: public Renderable {
 	protected:
 		bool meatProducing; // indikator penghasil daging
 		bool eggProducing; // indikator penghasil telur
@@ -37,6 +38,7 @@ class FarmAnimal {
 		bool isMilkProducing(); // true jika milkProducing bernilai true
 		
 		//Berkaitan dengan aksi yg dilakukan animal
+		//char render = 0;
 		virtual void Bersuara(); //Suara animal, akan dioverride di subclassnya
 		void makan(); //procedure animal memakan grass
 		bool isHungry(); //Mengecek apakah animal dalam keadaan hungry atau tidak
