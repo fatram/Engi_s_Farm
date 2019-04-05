@@ -5,8 +5,10 @@ using namespace std;
 int main() {
     Game G;
     string cmd;
-    G.printBoard();
+ 
     do {
+		system("clear");
+		G.printBoard();
         cout<<"Masukkan input: ";
         cin>>cmd;
         G.readCommand(cmd);
