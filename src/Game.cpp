@@ -4,14 +4,42 @@
 using namespace std;
 
 Game::Game(){
-	this->width = 10;
+	this->width = 11;
 	this->height = 10;
-	P.setPosX(0);
-	P.setPosY(0);
+	P.setPosX(6);
+	P.setPosY(10);
 	tick = 0;
 	board = new Cell**[this->height];
 	for (int i=0;i<this->height;i++){
 		board[i] = new Cell*[this->width ];
+	}
+	for (int i=0;i<this->height;i++){
+		for (int j=0; j<this->width;j++){
+			if (i>=0 && i<=2 && j>=0 && j<=2){
+                //Inisialisasi coop
+                board[i][j] = new Coop();
+            }
+            else if (i>=0 && i<=5 && j>=4&& j<=7){
+                //inisialisasi Barn
+                board[i][j] = new Barn();
+            }
+			else if (i == 1 && j == 10){
+                //inisialisasi Truck
+                board[i][j] = new Truck();
+            }
+            else if (i == 1 && j == 10){
+                //inisialisasiMixer
+                board[i][j] = new Mixer();
+            }
+            else if (i == 3 && j == 10){
+                //inisialisasi well
+                board[i][j] = new Well();
+            }
+			else {
+				board[i][j] = new Grassland();
+			}
+			
+		}
 	}
 }
 	
@@ -24,17 +52,16 @@ Game::Game(int width, int height,int pX, int pY){
 	board = new Cell**[this->height];
 	for (int i=0;i<this->height;i++){
 		board[i] = new Cell*[this->width ];
-	}
+	}	
 }
 
 Game::~Game(){
 	for(int i =  0; i <this->height;i++){
-		delete [] *board[i];
+		delete [] board[i];
 	}
 		//delete [] board[i];
 	//}
-	delete [] *board;
-	cout <<"dtor"<<endl;
+	delete [] board;
 }
 		
 
@@ -55,8 +82,8 @@ void Game::setHeight(int h){
 }
 
 void Game::setBoard(int x, int y, Cell* C){
-	cout<<C->render()<<endl;
-	//board[x][y] = C;
+	//cout<<C->render()<<endl;
+	board[x][y] = C;
 }
 
 Cell* Game::getBoard(int x, int y){
