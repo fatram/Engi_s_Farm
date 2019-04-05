@@ -13,7 +13,7 @@ char Truck::render() {
 
 void Truck::interact(Player& P) {
   Product* product;
-  if (coolDownTruck == 10) {
+  if (coolDownTruck > 10) {
     while(!P.getBagSize() == 0){
       product = P.getProduct(0);//Bag().get(0);
       P.addMoney(product->getHarga());

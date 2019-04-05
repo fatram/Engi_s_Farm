@@ -77,3 +77,5 @@ void FarmAnimal::Movement(){
 	}	
 
 }
+
+int FarmAnimal::getHungry(){ return hungry;}

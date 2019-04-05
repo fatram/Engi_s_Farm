@@ -93,35 +93,59 @@ Cell* Game::getBoard(int x, int y){
 
 void Game::readCommand(string c){
 	if (c.compare("w") == 0){
-		P.setPosX(P.getPosX()-1);
-		updateTick();		
-		system("clear");
-		MoveAnimal();
-		printBoard();
+		if (P.getPosX()-1 >=0 && !board[P.getPosX()-1][P.getPosY()]->getHasFacility())
+		{
+			P.setPosX(P.getPosX()-1);
+			updateTick();		
+			//update cdtruck
+			board[0][10]->setCoolDownTruck(board[0][10]->getCoolDownTruck()+1);
+			system("clear");
+			MoveAnimal();
+			updateAnimal();
+			printBoard();
+		}
 	}
 	else
 	if (c.compare("a") == 0) {
-		P.setPosY(P.getPosY()-1);
-		updateTick();
-		system("clear");
-		MoveAnimal();
-		printBoard();		
+		if (P.getPosY()-1 >=0 && !board[P.getPosX()][P.getPosY()-1]->getHasFacility())
+		{
+			P.setPosY(P.getPosY()-1);
+			updateTick();
+			//update cdtruck
+			board[0][10]->setCoolDownTruck(board[0][10]->getCoolDownTruck()+1);
+			system("clear");
+			MoveAnimal();
+			updateAnimal();
+			printBoard();
+		}		
 	}
 	else
 	if (c.compare("s") == 0){
-		P.setPosX(P.getPosX()+1);
-		updateTick();
-		system("clear");
-		MoveAnimal();
-		printBoard();
+		if (P.getPosX()+1<height && !board[P.getPosX()+1][P.getPosY()]->getHasFacility())
+		{
+			P.setPosX(P.getPosX()+1);
+			updateTick();
+			//update cdtruck
+			board[0][10]->setCoolDownTruck(board[0][10]->getCoolDownTruck()+1);
+			system("clear");
+			MoveAnimal();
+			updateAnimal();
+			printBoard();
+		}
 	}
 	else
 	if (c.compare("d") ==0){
-		P.setPosY(P.getPosY()+1);
-		updateTick();
-		system("clear");
-		MoveAnimal();
-		printBoard();
+		if (P.getPosY()+1<width && !board[P.getPosX()][P.getPosY()+1]->getHasFacility())
+		{
+			P.setPosY(P.getPosY()+1);
+			updateTick();
+			//update cdtruck
+			board[0][10]->setCoolDownTruck(board[0][10]->getCoolDownTruck()+1);
+			system("clear");
+			MoveAnimal();
+			updateAnimal();
+			printBoard();
+		}
 	}
 	else
 	if (c.compare("kill") == 0){
@@ -140,6 +164,8 @@ void Game::readCommand(string c){
 					animal.remove(a);
 					found = true;
 					updateTick();
+					//update cdtruck
+					board[0][10]->setCoolDownTruck(board[0][10]->getCoolDownTruck()+1);
 				}
 			}
 			if (!found) {
@@ -147,6 +173,7 @@ void Game::readCommand(string c){
 				posY--;
 			} 
 		}
+		system("clear");
 		printBoard();
 	}
 	else
@@ -167,14 +194,19 @@ void Game::readCommand(string c){
 					P.addBag(a->interact()); //menambahkan ke bag player
 					found = true;
 					updateTick();
+					//update cdtruck
+					board[0][10]->setCoolDownTruck(board[0][10]->getCoolDownTruck()+1);
 				}
 			}
 			if (!found) {
 				//Cari facility
-				found = board[P.getPosX()+move[posX]][P.getPosY()+move[posY]]->getHasFacility();
+				if (P.getPosX()+move[posX]>=0 && P.getPosX()+move[posX]<height && P.getPosY()+move[posY]>=0 && P.getPosY()+move[posY]<width)
+					found = board[P.getPosX()+move[posX]][P.getPosY()+move[posY]]->getHasFacility();
 				if (found){
 					board[P.getPosX()+move[posX]][P.getPosY()+move[posY]]->interact(P);
 					updateTick();
+					//update cdtruck
+					board[0][10]->setCoolDownTruck(board[0][10]->getCoolDownTruck()+1);
 				}
 				else {
 					posX++;
@@ -182,11 +214,17 @@ void Game::readCommand(string c){
 				}
 			} 
 		}
+		system("clear");
+		printBoard();
 	}
 	else
 	if (c.compare("grow") == 0){
 		board[P.getPosX()][P.getPosY()]->setHasGrass(true);
 		updateTick();
+		printBoard();
+		//update cdtruck
+		board[0][10]->setCoolDownTruck(board[0][10]->getCoolDownTruck()+1);
+		system("clear");
 		printBoard();
 	}
 	else
@@ -203,6 +241,8 @@ void Game::readCommand(string c){
 				animal.get(i)->Bersuara();
 				found = true;
 				updateTick();
+				//update cdtruck
+				board[0][10]->setCoolDownTruck(board[0][10]->getCoolDownTruck()+1);
 			}
 			else {
 				posX++;
@@ -272,30 +312,74 @@ void Game::printBoard(){
 	else cout<<"-"<<endl;
 }
 
+bool Game::isPosExist(int x, int y){
+	for (int i=0; i<animal.size();i++){
+		if (x == animal.get(i)->getPosX() && y == animal.get(i)->getPosY()) {
+			return true;
+		}
+	}
+	return false;
+}
+
 void Game::MoveAnimal(){
 	bool valid;
 	int pilihan, xtemp, ytemp;
+	const int maxrand = 100;
+	int j;
 	
-	
+	srand(time(nullptr));
 	if(animal.size()>0){
 		for(int i=0;i<animal.size();i++){
 			valid =false;
+			j = 0;
 			while(!valid){
-				pilihan = rand() % 4;
-				if(pilihan == 0){
+				if (j>maxrand) {
+					break;
+				}				
+				pilihan = 1 + rand()/((RAND_MAX + 1u)/4);//rand() % 4;
+				if(pilihan == 1){
+					xtemp = animal.get(i)->getPosX();
 					ytemp = animal.get(i)->getPosY()+1;
-				} else if (pilihan ==1){
-					xtemp = animal.get(i)->getPosX() -1;
 				} else if (pilihan ==2){
-					ytemp = animal.get(i)->getPosY() -1;
+					ytemp = animal.get(i)->getPosY();
+					xtemp = animal.get(i)->getPosX() -1;
 				} else if (pilihan ==3){
+					xtemp = animal.get(i)->getPosX();
+					ytemp = animal.get(i)->getPosY() -1;
+				} else if (pilihan ==4){
+					ytemp = animal.get(i)->getPosY();
 					xtemp = animal.get(i)->getPosY()+1;
-				}
-				if(xtemp<this->height && xtemp>=0 && ytemp >this->width && ytemp>=0 && board[xtemp][ytemp]->render() =='-' ){
-					valid =true;
+				}                                   
+				if(xtemp<this->height && xtemp>=0 && ytemp <this->width && ytemp>=0 && 
+				   board[animal.get(i)->getPosX()][animal.get(i)->getPosY()]->render() == board[xtemp][ytemp]->render() &&
+				   !isPosExist(xtemp,ytemp) && (xtemp!=P.getPosX() || ytemp!=P.getPosY()))
+				{
+					
+					valid =true;        
 					animal.get(i)->setPosY(ytemp);
 					animal.get(i)->setPosX(xtemp);				
-				}			
+				}	
+				j++;
+			}
+		}
+	}
+}
+
+void Game::updateAnimal(){
+	for (int i=0; i<animal.size();i++){
+		animal.get(i)->updateHungry();
+		if (animal.get(i)->isHungry()){
+			//Kasus pertama, menginjak grass maka dimakan
+			if (board[animal.get(i)->getPosX()][animal.get(i)->getPosY()]->getHasGrass() &&
+			  animal.get(i)->isHungry()){
+				board[animal.get(i)->getPosX()][animal.get(i)->getPosY()]->setHasGrass(false);
+				animal.get(i)->makan();
+			}
+			//Kasus kedua, hungry<5 maka mati
+			else
+			if (animal.get(i)->getHungry()<= -5)
+			{
+				animal.remove(animal.get(i));
 			}
 		}
 	}

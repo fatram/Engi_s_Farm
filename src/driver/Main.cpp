@@ -11,9 +11,9 @@ int main() {
     G.addAnimal(new Goat(5,6));
     G.addAnimal(new Cow(2,3));
     G.addAnimal(new Camel(9,7));
+    system("clear");
     G.printBoard();
     do {
-		//G.printBoard();
         cout<<"Masukkan input: ";
         cin>>cmd;
         G.readCommand(cmd);

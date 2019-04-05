@@ -76,7 +76,8 @@ class Game {
 		void updateTick();
 		void printBoard();		
 		void MoveAnimal();
-
+		bool isPosExist(int x, int y);
+		void updateAnimal();
 
 };
 

@@ -45,6 +45,7 @@ class FarmAnimal: public Renderable {
 		bool isHungry(); //Mengecek apakah animal dalam keadaan hungry atau tidak
 		void updateHungry(); //mengupdate hungry tiap tick
 		virtual FarmProduct* interact() = 0; // mengembalikan FarmProduct tergantung jenis hewan yang berinteraksi
+		int getHungry();
 };
 
 #endif
