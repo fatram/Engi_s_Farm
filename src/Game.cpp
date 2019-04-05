@@ -99,6 +99,7 @@ void Game::readCommand(string c){
 					P.addBag(a->interact()); //menambahkan ke bag player
 					animal.remove(a);
 					found = true;
+					updateTick();
 				}
 			}
 			if (!found) {
@@ -125,6 +126,7 @@ void Game::readCommand(string c){
 					FarmAnimal *a = animal.get(i);
 					P.addBag(a->interact()); //menambahkan ke bag player
 					found = true;
+					updateTick();
 				}
 			}
 			if (!found) {
@@ -132,6 +134,7 @@ void Game::readCommand(string c){
 				found = board[P.getPosX()+move[posX]][P.getPosY()+move[posY]]->getHasFacility;
 				if (found){
 					board[P.getPosX()+move[posX]][P.getPosY()+move[posY]]->interact(P);
+					updateTick();
 				}
 				else {
 					posX++;
@@ -143,7 +146,8 @@ void Game::readCommand(string c){
 	else
 	if (c.compare("grow") == 0){
 		board[P.getPosX()][P.getPosY()]->setHasGrass(true);
-		printBoard;
+		updateTick();
+		printBoard();
 	}
 	else
 	if (c.compare("talk") == 0){
@@ -158,6 +162,7 @@ void Game::readCommand(string c){
 			if (i != -999) {
 				animal.get(i)->Bersuara();
 				found = true;
+				updateTick();
 			}
 			else {
 				posX++;
