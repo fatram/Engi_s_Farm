@@ -43,7 +43,7 @@ void Mixer::interact(Player& P){
 			cout << "Item yang dipilih tidak tersedia" << endl;
 		} else {
 			Product * p1 = P.getProduct(c1-1);
-			Product * p2 = P.getProduct(c2-2);
+			Product * p2 = P.getProduct(c2-1);
 			if(choice == 1){
 				if((p1->toString().compare("Chicken Egg") == 0
 					&& p2->toString().compare("Cow Milk") == 0) ||
@@ -67,7 +67,7 @@ void Mixer::interact(Player& P){
 						Product * ppc = &o;
 						P.delBag(p1);
 						P.delBag(p2);
-						P.delBag(ppc);
+						P.addBag(ppc);
 						cout << "Omelette berhasil dibuat" << endl;
 				} else {
 					cout << "Omelette gagal dibuat" << endl;
@@ -81,7 +81,7 @@ void Mixer::interact(Player& P){
 						Product * ppc = &s;
 						P.delBag(p1);
 						P.delBag(p2);
-						P.delBag(ppc);
+						P.addBag(ppc);
 						cout << "Sausage berhasil dibuat" << endl;
 				} else {
 					cout << "Sausage gagal dibuat" << endl;
