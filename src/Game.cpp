@@ -42,6 +42,18 @@ Game::Game(){
 			
 		}
 	}
+	//hardcode rumput
+	board[1][1]->setHasGrass(true);
+	board[1][3]->setHasGrass(true);
+	board[2][1]->setHasGrass(true);
+	board[2][6]->setHasGrass(true);
+	board[2][7]->setHasGrass(true);
+	board[3][7]->setHasGrass(true);
+	board[7][2]->setHasGrass(true);
+	board[8][2]->setHasGrass(true);
+	board[8][3]->setHasGrass(true);
+	board[9][3]->setHasGrass(true);
+	board[9][4]->setHasGrass(true);
 }
 	
 Game::Game(int width, int height,int pX, int pY){
@@ -306,7 +318,7 @@ void Game::printBoard(){
 	cout << "Item di dalam bag : " << endl;
 	if(P.getBagSize() > 0){		
 		for(int i = 0; i < P.getBagSize(); i++){
-			cout << (i+1) + ". " + P.getProduct(i)->toString() << endl;
+			cout << (i+1) << ". " << P.getProduct(i)->toString() << endl;
 		}
 	}
 	else cout<<"-"<<endl;
@@ -351,7 +363,7 @@ void Game::MoveAnimal(){
 					xtemp = animal.get(i)->getPosY()+1;
 				}                                   
 				if(xtemp<this->height && xtemp>=0 && ytemp <this->width && ytemp>=0 && 
-				   board[animal.get(i)->getPosX()][animal.get(i)->getPosY()]->render() == board[xtemp][ytemp]->render() &&
+				   (board[animal.get(i)->getPosX()][animal.get(i)->getPosY()]->render() == board[xtemp][ytemp]->render() || board[animal.get(i)->getPosX()][animal.get(i)->getPosY()]->getGrassChar() == board[xtemp][ytemp]->render() )&&
 				   !isPosExist(xtemp,ytemp) && (xtemp!=P.getPosX() || ytemp!=P.getPosY()))
 				{
 					
@@ -365,7 +377,7 @@ void Game::MoveAnimal(){
 	}
 }
 
-void Game::updateAnimal(){
+void Game::updateAnimal(){char getGrassChar();
 	for (int i=0; i<animal.size();i++){
 		animal.get(i)->updateHungry();
 		if (animal.get(i)->isHungry()){

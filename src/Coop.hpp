@@ -8,6 +8,7 @@ class Coop : public Land {
 	public:
 		// mengembalikan karakter 'o' sebagai representasi Coop
 		char render();
+		char getGrassChar();
 };
 
 #endif

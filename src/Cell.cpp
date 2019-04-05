@@ -39,3 +39,5 @@ bool Cell::getHasGrass() const {
 void Cell::setHasGrass(bool hg) {
   hasGrass = hg;
 }
+
+char Cell::getGrassChar(){return 0;} //dummy function

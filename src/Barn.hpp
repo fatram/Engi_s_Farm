@@ -8,6 +8,7 @@ class Barn : public Land{
 	public:
 		// mengembalikan karakter 'x' sebagai representasi Barn
 		char render();
+		char getGrassChar();
 };
 
 #endif

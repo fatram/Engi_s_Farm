@@ -27,7 +27,7 @@ class Cell: public Renderable{
 		void setHasFacility(bool);
 		bool getHasGrass() const; // mengembalikan hasGrass
 		void setHasGrass(bool); // set hasGrass sesuai input
-		
+		virtual char getGrassChar(); //mengembalikan char dari grass, hanya diimplement di land
 };
 
 #endif

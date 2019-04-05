@@ -9,6 +9,7 @@ class Grassland : public Land {
 		// Mengembalikan karakter '-' sebagai representasi Grassland
 		//Grassland(bool hf, bool hg);
 		char render();
+		char getGrassChar();
 };
 
 #endif
