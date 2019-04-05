@@ -1,5 +1,6 @@
 #include "Game.hpp"	
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -95,6 +96,7 @@ void Game::readCommand(string c){
 		P.setPosX(P.getPosX()-1);
 		updateTick();		
 		system("clear");
+		MoveAnimal();
 		printBoard();
 	}
 	else
@@ -102,6 +104,7 @@ void Game::readCommand(string c){
 		P.setPosY(P.getPosY()-1);
 		updateTick();
 		system("clear");
+		MoveAnimal();
 		printBoard();		
 	}
 	else
@@ -109,6 +112,7 @@ void Game::readCommand(string c){
 		P.setPosX(P.getPosX()+1);
 		updateTick();
 		system("clear");
+		MoveAnimal();
 		printBoard();
 	}
 	else
@@ -116,6 +120,7 @@ void Game::readCommand(string c){
 		P.setPosY(P.getPosY()+1);
 		updateTick();
 		system("clear");
+		MoveAnimal();
 		printBoard();
 	}
 	else
@@ -261,8 +266,39 @@ void Game::printBoard(){
 	cout << "Item di dalam bag : " << endl;
 	if(P.getBagSize() > 0){		
 		for(int i = 0; i < P.getBagSize(); i++){
-			cout << (i+1)<<". "<< P.getProduct(i)->toString() << endl;
+			cout << (i+1) + ". " + P.getProduct(i)->toString() << endl;
 		}
 	}
 	else cout<<"-"<<endl;
 }
+
+void Game::MoveAnimal(){
+	bool valid;
+	int pilihan, xtemp, ytemp;
+	
+	
+	if(animal.size()>0){
+		for(int i=0;i<animal.size();i++){
+			valid =false;
+			while(!valid){
+				pilihan = rand() % 4;
+				if(pilihan == 0){
+					ytemp = animal.get(i)->getPosY()+1;
+				} else if (pilihan ==1){
+					xtemp = animal.get(i)->getPosX() -1;
+				} else if (pilihan ==2){
+					ytemp = animal.get(i)->getPosY() -1;
+				} else if (pilihan ==3){
+					xtemp = animal.get(i)->getPosY()+1;
+				}
+				if(xtemp<this->height && xtemp>=0 && ytemp >this->width && ytemp>=0 && board[xtemp][ytemp]->render() =='-' ){
+					valid =true;
+					animal.get(i)->setPosY(ytemp);
+					animal.get(i)->setPosX(xtemp);				
+				}			
+			}
+		}
+	}
+}
+
+

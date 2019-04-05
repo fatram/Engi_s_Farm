@@ -75,7 +75,7 @@ class Game {
 		//New
 		void updateTick();
 		void printBoard();		
-		
+		void MoveAnimal();
 
 
 };
