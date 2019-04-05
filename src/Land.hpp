@@ -7,7 +7,7 @@
 class Land : public Cell {
 	public:
 		Land(); //set hasFacility False
-		void interact(Player& P); //Do Nothing		
+		void interact(Player& P); //Do Nothing		S
 		virtual ~Land() = 0; //virtual dtor agar kelas menjadi abstrak
 };
 
