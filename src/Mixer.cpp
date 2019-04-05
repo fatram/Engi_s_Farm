@@ -32,7 +32,7 @@ void Mixer::interact(Player& P){
 	if(P.getBagSize() > 0){
 		cout << "Item di dalam bag : " << endl;
 		for(int i = 0; i < P.getBagSize(); i++){
-			cout << (i+1) + ". " + P.getProduct(i)->toString() << endl;
+			cout << (i+1)<<". " << P.getProduct(i)->toString() << endl;
 		}
 		cout << "Pilih item yang akan digunakan (e.g 1 2 (Artinya item nomor 1 dan 2) : "<<endl;
 		int c1;

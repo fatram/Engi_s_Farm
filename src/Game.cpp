@@ -261,7 +261,7 @@ void Game::printBoard(){
 	cout << "Item di dalam bag : " << endl;
 	if(P.getBagSize() > 0){		
 		for(int i = 0; i < P.getBagSize(); i++){
-			cout << (i+1) + ". " + P.getProduct(i)->toString() << endl;
+			cout << (i+1)<<". "<< P.getProduct(i)->toString() << endl;
 		}
 	}
 	else cout<<"-"<<endl;
