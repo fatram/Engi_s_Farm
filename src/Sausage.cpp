@@ -8,6 +8,6 @@ Sausage::Sausage(int h) {
     harga = h;
 }
 
-string toString(){
+string Sausage::toString(){
     return "Sausage";
 }

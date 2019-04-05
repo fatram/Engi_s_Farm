@@ -73,7 +73,7 @@ void Game::readCommand(string c){
 	}
 	else
 	if (c.compare("s") == 0){
-		P.setPosX(P.getPosX+1);
+		P.setPosX(P.getPosX()+1);
 		updateTick();
 		printBoard();
 	}
@@ -131,7 +131,7 @@ void Game::readCommand(string c){
 			}
 			if (!found) {
 				//Cari facility
-				found = board[P.getPosX()+move[posX]][P.getPosY()+move[posY]]->getHasFacility;
+				found = board[P.getPosX()+move[posX]][P.getPosY()+move[posY]]->getHasFacility();
 				if (found){
 					board[P.getPosX()+move[posX]][P.getPosY()+move[posY]]->interact(P);
 					updateTick();
@@ -209,16 +209,16 @@ void Game::printBoard(){
 	for (int i = 0; i<height;i++){
 		for (int j =0; j<width; j++){
 			if (searchAnimal(i,j) != -999) {
-				cout<<" "<<animal.get(searchAnimal(i,j))->render();
+				cout<<" | "<<animal.get(searchAnimal(i,j))->render();
 			}
 			else
 			if (P.getPosX() == i && P.getPosY() == j){
-				cout<<" P";
+				cout<<" | P";
 			}
 			else {
-				cout<<" "<<board[i][j]->render();
+				cout<<" | "<<board[i][j]->render();
 			}
 		}
-		cout<<endl;
+		cout<<" |"<<endl;
 	}
 }
