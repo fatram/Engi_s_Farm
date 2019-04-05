@@ -1,5 +1,6 @@
 #include "FarmAnimal.hpp"
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -55,3 +56,24 @@ void FarmAnimal::updateHungry(){
 }
 
 FarmAnimal::~FarmAnimal(){}
+
+void FarmAnimal::Movement(){
+	bool valid;
+	int pilihan, xtemp, ytemp;
+	//randomize();
+	valid =false;
+	while(!valid){
+		pilihan = rand() % 4; 
+				
+		if(pilihan == 0){
+			posY = posY+1;
+		} else if (pilihan ==1){
+			posX = posX -1;
+		} else if (pilihan ==2){
+			posY = posY -1;
+		} else if (pilihan ==3){
+			posX = posX+1;
+		}
+	}	
+
+}

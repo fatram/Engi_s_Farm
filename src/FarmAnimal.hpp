@@ -31,6 +31,7 @@ class FarmAnimal: public Renderable {
 		int getPosY() const; // Mengembalikan posY
 		void setPosX(int); // set posX baru sesuai input
 		void setPosY(int); // set posY baru sesuai input
+		void Movement();
 		
 		// cek kategori FarmAnimal
 		bool isMeatProducing(); // true jika meatProducing bernilai true
