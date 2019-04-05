@@ -5,10 +5,9 @@ using namespace std;
 int main() {
     Game G;
     string cmd;
- 
+    G.addAnimal(new Camel(1,1));
     do {
-		system("clear");
-		G.printBoard();
+		//G.printBoard();
         cout<<"Masukkan input: ";
         cin>>cmd;
         G.readCommand(cmd);

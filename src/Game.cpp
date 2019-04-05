@@ -93,25 +93,29 @@ Cell* Game::getBoard(int x, int y){
 void Game::readCommand(string c){
 	if (c.compare("w") == 0){
 		P.setPosX(P.getPosX()-1);
-		updateTick();
+		updateTick();		
+		system("clear");
 		printBoard();
 	}
 	else
 	if (c.compare("a") == 0) {
 		P.setPosY(P.getPosY()-1);
 		updateTick();
-		printBoard();
+		system("clear");
+		printBoard();		
 	}
 	else
 	if (c.compare("s") == 0){
 		P.setPosX(P.getPosX()+1);
 		updateTick();
+		system("clear");
 		printBoard();
 	}
 	else
 	if (c.compare("d") ==0){
 		P.setPosY(P.getPosY()+1);
 		updateTick();
+		system("clear");
 		printBoard();
 	}
 	else
@@ -232,12 +236,12 @@ int Game::searchAnimal(int x, int y){
 	for (i=0; i<animal.size() && !found; i++){
 		if (animal.get(i)->getPosX() == x && animal.get(i)->getPosY()==y) found = true;
 	}
-	if (found) return i;
+	if (found) return i-1;
 	else return -999;
 }
 
 void Game::printBoard(){
-	cout<<"Tick :"<<tick<<endl;
+	cout<<"Tick : "<<tick<<'\t'<<"Water: "<<P.getWater()<<'\t'<<"Money : "<<P.getMoney()<<endl;
 	for (int i = 0; i<height;i++){
 		for (int j =0; j<width; j++){
 			if (searchAnimal(i,j) != -999) {
@@ -253,4 +257,12 @@ void Game::printBoard(){
 		}
 		cout<<" |"<<endl;
 	}
+	//Print daftar bag
+	cout << "Item di dalam bag : " << endl;
+	if(P.getBagSize() > 0){		
+		for(int i = 0; i < P.getBagSize(); i++){
+			cout << (i+1) + ". " + P.getProduct(i)->toString() << endl;
+		}
+	}
+	else cout<<"-"<<endl;
 }

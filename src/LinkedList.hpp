@@ -1,7 +1,7 @@
 #ifndef LINKEDLIST_HPP
 #define LINKEDLIST_HPP
 
-//#define nullptr nullptrptr
+//#define NULL NULL
 
 //simpul dalam LinkedList, yang menyimpan informasi data yang disimpan dan alamat simpul selanjutnya
 template<class T>
@@ -19,12 +19,12 @@ class LinkedList{
 	public:
 		// default ctor, membentuk LinkedList kosong
 		LinkedList(){
-			first = nullptr;
+			first = NULL;
 		}
 		
 		// dtor, menghapus LinkedList
 		~LinkedList(){
-			while(first != nullptr){
+			while(first != NULL){
 				node<T> *temp = first;
 				first = first->next;
 				delete temp;
@@ -35,7 +35,7 @@ class LinkedList{
 		int find(T element){
 			int i = 0;
 			node<T> *temp = first;
-			while(temp->next != nullptr && get(i) != element){
+			while(temp->next != NULL && get(i) != element){
 				temp = temp->next;
 				i++;
 			}
@@ -48,19 +48,19 @@ class LinkedList{
 		
 		// memeriksa apakah LinkedList kosong
 		bool isEmpty(){
-			return first == nullptr;
+			return first == NULL;
 		}
 		
 		// menambah elemen ke dalam LinkedList sebagai elemen terakhir
 		void add(T element){
 			node<T> *temp = new node<T>;
 			temp->data = element;
-			temp->next = nullptr;
-			if(first == nullptr){
+			temp->next = NULL;
+			if(first == NULL){
 				first = temp;
 			} else {
 				node<T> *tmp = first;
-				while(tmp->next != nullptr){
+				while(tmp->next != NULL){
 					tmp = tmp->next;
 				}
 				tmp->next = temp;
@@ -85,7 +85,7 @@ class LinkedList{
 		int size(){
 			int i = 0;
 			node<T> *temp = first;
-			while(temp != nullptr){
+			while(temp != NULL){
 				temp = temp->next;
 				i++;
 			}
@@ -96,7 +96,7 @@ class LinkedList{
 		void remove(T element){
 			node<T> *temp = first;
 			node<T> *tempN = first;
-			while(tempN->next != nullptr && tempN->data != element){
+			while(tempN->next != NULL && tempN->data != element){
 				temp = tempN;
 				tempN = tempN->next;
 			}
@@ -110,7 +110,7 @@ class LinkedList{
 			} else {
 				if(tempN->data == element){
 					node<T> *tmp = tempN;
-					first = nullptr;
+					first = NULL;
 					delete tmp;
 				}
 			}
