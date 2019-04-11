@@ -11,6 +11,7 @@ public class Player {
      * Default constructor
      */
     public Player(){
+        bag = new LinkedList<>();
         maxWater = 10;
         maxBag = 10;
         water = 0;
@@ -28,6 +29,7 @@ public class Player {
      * @param maxBag banyak maksimum tas yang diinginkan
      */
     public Player(int posX, int posY, int water, int maxWater, int maxBag){
+        bag = new LinkedList<>();
         this.maxWater = maxWater;
         this.maxBag = maxBag;
         this.water = water;
