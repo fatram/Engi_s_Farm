@@ -172,7 +172,7 @@ public class Player {
      * @param i index yang diinginkan
      * @return Product pada bag dengan index i
      */
-    public Product getItemFromBag(int i){
+    public Product getProduct(int i){
         return bag.get(i);
     }
 }
