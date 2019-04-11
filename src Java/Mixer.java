@@ -33,7 +33,7 @@ public class Mixer extends Facility implements Renderable {
         if(P.getBagSize() > 0){
             System.out.println("Item di dalam bag : ");
             for(int i = 0; i < P.getBagSize(); i++){
-                System.out.println((i+1) + ". " + P.getItemFromBag(i).toString());
+                System.out.println((i+1) + ". " + P.getProduct(i).toString());
             }
             System.out.println("Pilih item yang akan digunakan (e.g 1 2 (Artinya item nomor 1 dan 2) : ");
             int c1;
@@ -44,8 +44,8 @@ public class Mixer extends Facility implements Renderable {
             if(c1 > P.getBagSize() || c2 > P.getBagSize()){
                 System.out.println("Item yang dipilih tidak tersedia");
             } else {
-                Product p1 = P.getItemFromBag(c1-1);
-                Product p2 = P.getItemFromBag(c2-1);
+                Product p1 = P.getProduct(c1-1);
+                Product p2 = P.getProduct(c2-1);
                 if(choice == 1){
                     if((p1.toString().equals("Chicken Egg")
                             && p2.toString().equals("Cow Milk")) ||
