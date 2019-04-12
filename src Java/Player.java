@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+
 public class Player {
     private int water; // banyak air yang dimiliki
-    private LinkedList<Product> bag; // tas pemain
+    private ArrayList<Product> bag; // tas pemain
     private int posX; // posisi pemain (kolom)
     private int posY; // posisi pemain (baris)
     private final int maxWater; // nilai maksimum air
@@ -11,7 +13,7 @@ public class Player {
      * Default constructor
      */
     public Player(){
-        bag = new LinkedList<>();
+        bag = new ArrayList<>();
         maxWater = 10;
         maxBag = 10;
         water = 0;
@@ -29,7 +31,7 @@ public class Player {
      * @param maxBag banyak maksimum tas yang diinginkan
      */
     public Player(int posX, int posY, int water, int maxWater, int maxBag){
-        bag = new LinkedList<>();
+        bag = new ArrayList<>();
         this.maxWater = maxWater;
         this.maxBag = maxBag;
         this.water = water;
