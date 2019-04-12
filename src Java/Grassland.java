@@ -1,4 +1,4 @@
-public class Grassland extends Land implements Renderable {
+public class Grassland extends Land {
     /**
      * Mengembalikan karakter representasi Grassland
      * @return '&' jika berumput, '-' jika tak berumput

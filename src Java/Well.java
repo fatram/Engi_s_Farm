@@ -1,4 +1,4 @@
-public class Well extends Facility implements Renderable {
+public class Well extends Facility {
     /**
      * Mengembalikan karakter representasi Well
      * @return 'W'

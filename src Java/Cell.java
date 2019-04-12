@@ -1,4 +1,4 @@
-public abstract class Cell {
+public abstract class Cell implements Renderable {
     protected int coolDownTruck; // Digunakan untuk memeriksa availability kelas turunan Truck
     protected boolean hasFacility; // Digunakan untuk memeriksa availability Facility pada suatu Cell
     protected boolean hasGrass; // Digunakan untuk memeriksa availability rumput pada suatu Cell

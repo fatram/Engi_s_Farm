@@ -1,4 +1,4 @@
-public class Truck extends Facility implements Renderable {
+public class Truck extends Facility {
     /**
      * Default constructor
      */
@@ -30,7 +30,7 @@ public class Truck extends Facility implements Renderable {
         Product p;
         if(getCoolDownTruck() > 10){
             while(!P.isBagEmpty()){
-                p = P.getItemFromBag(0);
+                p = P.getProduct(0);
                 P.addMoney(p.getHarga());
                 P.delBag(p);
                 setCoolDownTruck(0);

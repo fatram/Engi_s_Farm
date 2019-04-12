@@ -1,4 +1,4 @@
-public abstract class FarmAnimal {
+public abstract class FarmAnimal implements Renderable {
     protected boolean meatProducing; // indikator penghasil daging
     protected boolean eggProducing; // indikator penghasil telur
     protected boolean milkProducing; // indikator penghasil susu
@@ -164,7 +164,7 @@ public abstract class FarmAnimal {
      */
     public void movement(){
         while(true){
-            int pilihan = (int) (Math.random()*3);
+            int pilihan = (int) (Math.random()*4);
             if(pilihan == 0){
                 setPosY(getPosY() + 1);
             } else if (pilihan == 1){
@@ -176,4 +176,10 @@ public abstract class FarmAnimal {
             }
         }
     }
+
+    /**
+     * methods abstract interact, mengembalikan FarmProduct sesuai jenis hewan
+     * @return FarmProduct
+     */
+    public abstract FarmProduct interact();
 }

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Mixer extends Facility implements Renderable {
+public class Mixer extends Facility {
     /**
      * Mengembalikan karakter representsi Mixer
      * @return 'M'

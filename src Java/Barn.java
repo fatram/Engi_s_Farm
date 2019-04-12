@@ -1,4 +1,4 @@
-public class Barn extends Land implements Renderable {
+public class Barn extends Land {
     /**
      * Mengembalikan karakter representasi Barn
      * @return '@' jika ada rumput, 'x' jika tidak ada rumput

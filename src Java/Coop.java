@@ -1,4 +1,4 @@
-public class Coop extends Land implements Renderable {
+public class Coop extends Land {
     /**
      * Mengembalikan karakter representasi Coop
      * @return '#' jika ada rumput, 'o' jika tidak ada rumput
