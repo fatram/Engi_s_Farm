@@ -159,6 +159,9 @@ public abstract class FarmAnimal {
         setHungry(getHungry() - 1);
     }
 
+    /**
+     * mekanisme pergerakan hewan
+     */
     public void movement(){
         while(true){
             int pilihan = (int) (Math.random()*3);
