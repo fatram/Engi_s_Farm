@@ -1,5 +1,8 @@
 package farmanimal;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import product.CowMilk;
 import product.FarmProduct;
 
@@ -35,6 +38,18 @@ public class Cow extends FarmAnimal {
         return 'S';
     }
 
+    public StackPane renderImg(){
+        StackPane s = new StackPane();
+        Image img = new Image(getClass().getResourceAsStream("/assets/cow.png"));
+        ImageView im = new ImageView();
+        im.setImage(img);
+        im.setCache(true);
+        im.setPreserveRatio(true);
+        im.fitWidthProperty().bind(s.prefWidthProperty());
+        im.fitHeightProperty().bind(s.prefHeightProperty());
+        s.getChildren().add(im);
+        return s;
+    }
     /**
      * Mengembalikan FarmProduct ketika pemain berinteraksi dengan sapi
      * @return objek CowMilk

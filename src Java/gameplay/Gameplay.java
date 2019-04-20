@@ -1,12 +1,17 @@
-package game;
+package gameplay;
 
 import java.util.LinkedList;
+
 import cell.*;
 import farmanimal.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import player.Player;
 
 
-public class Game  {
+public class Gameplay  {
     private Cell board[][]; // lapangan permainan, direpresentasikan dengan matriks Cell
     private LinkedList<FarmAnimal> animals; // daftar hewan
     private final int width; // lebar lapangan
@@ -18,7 +23,7 @@ public class Game  {
      * Default constructor
      * bentuk lapangan dan benda-benda lain
      */
-    public Game(){
+    public Gameplay(){
         animals = new LinkedList<>();
         width = 11;
         height = 10;
@@ -87,6 +92,9 @@ public class Game  {
         return tick;
     }
 
+    public Player getPlayer(){
+        return P;
+    }
     /**
      * Setter tick
      * @param tick nilai tick yang diinginkan
@@ -317,6 +325,37 @@ public class Game  {
     }
 
     /**
+     * Cetak papan permainan dan status pemain melalui GUI
+     */
+    public GridPane showBoard(){
+        int DPOINT = 50;
+        GridPane root = new GridPane();
+        //root.setMinSize(DPOINT,DPOINT);
+        for(int i = 0; i < getHeight(); i++){
+            for(int j = 0; j < getWidth(); j++){
+                StackPane s = board[i][j].renderImg();
+                s.setPrefSize(DPOINT,DPOINT);
+                if(P.getPosX() == i && P.getPosY() == j) {
+                    Image personimg = new Image(getClass().getResourceAsStream("/assets/person.png"));
+                    ImageView im = new ImageView();
+                    im.setImage(personimg);
+                    im.setCache(true);
+                    im.setPreserveRatio(true);
+                    im.fitWidthProperty().bind(s.prefWidthProperty());
+                    im.fitHeightProperty().bind(s.prefHeightProperty());
+                    s.getChildren().add(im);
+                }
+                else
+                if(searchAnimal(i, j) != -999){
+                    s.getChildren().add(getAnimal(searchAnimal(i, j)).renderImg());
+                }
+                root.add(s,j,i);
+            }
+        }
+        return root;
+    }
+
+    /**
      * Cetak papan permainan dan status pemain
      */
     public void printBoard(){
@@ -343,7 +382,6 @@ public class Game  {
             System.out.println("-");
         }
     }
-
     /**
      * Periksa keberadaan hewan di posisi x,y pada papan permainan
      * @param x posisi x yang dicari
@@ -390,7 +428,7 @@ public class Game  {
                     }
                     if(xtemp<getHeight() && xtemp>=0 && ytemp <getWidth() && ytemp>=0 &&
                             (getBoard(getAnimal(i).getPosX(), getAnimal(i).getPosY()).render() == getBoard(xtemp, ytemp).render() || getBoard(getAnimal(i).getPosX(), getAnimal(i).getPosY()).getGrassChar() == getBoard(xtemp, ytemp).render() )&&
-                    !isPosExist(xtemp,ytemp) && (xtemp!=P.getPosX() || ytemp!=P.getPosY()))
+                            !isPosExist(xtemp,ytemp) && (xtemp!=P.getPosX() || ytemp!=P.getPosY()))
                     {
                         valid = true;
                         getAnimal(i).setPosX(xtemp);
@@ -412,7 +450,7 @@ public class Game  {
             if(getAnimal(i).isHungry()){
                 // Kasus pertama, menginjak grass maka dimakan
                 if(getBoard(getAnimal(i).getPosX(), getAnimal(i).getPosY()).getHasGrass() &&
-                getAnimal(i).isHungry()){
+                        getAnimal(i).isHungry()){
                     getBoard(getAnimal(i).getPosX(), getAnimal(i).getPosY()).setHasGrass(false);
                     getAnimal(i).makan();
                 } else {

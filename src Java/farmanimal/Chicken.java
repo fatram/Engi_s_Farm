@@ -1,5 +1,8 @@
 package farmanimal;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import product.ChickenEgg;
 import product.FarmProduct;
 
@@ -35,6 +38,18 @@ public class Chicken extends FarmAnimal {
         return 'A';
     }
 
+    public StackPane renderImg(){
+        StackPane s = new StackPane();
+        Image img = new Image(getClass().getResourceAsStream("/assets/chicken.png"));
+        ImageView im = new ImageView();
+        im.setImage(img);
+        im.setCache(true);
+        im.setPreserveRatio(true);
+        im.fitWidthProperty().bind(s.prefWidthProperty());
+        im.fitHeightProperty().bind(s.prefHeightProperty());
+        s.getChildren().add(im);
+        return s;
+    }
     /**
      * memberikan FarmProduct ketika pemain berinteraksi dengan ayam
      * @return objek ChickenEgg
