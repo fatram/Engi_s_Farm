@@ -23,8 +23,8 @@ public class PlayerTest {
         assertTrue(P.isBagEmpty());
         P.addBag(new CamelMilk());
         P.addBag(new CowMilk());
-        assertEquals("Cow Milk", P.getProduct(1));
-        assertEquals("Camel Milk", P.getProduct(0));
+        assertEquals("Cow Milk", P.getProduct(1).toString());
+        assertEquals("Camel Milk", P.getProduct(0).toString());
     }
 
 }
