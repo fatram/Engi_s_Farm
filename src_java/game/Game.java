@@ -6,7 +6,7 @@ import farmanimal.*;
 import player.Player;
 
 
-public class Game  {
+public class Game implements Iterable<FarmAnimal>  {
     private Cell board[][]; // lapangan permainan, direpresentasikan dengan matriks Cell
     private LinkedList<FarmAnimal> animals; // daftar hewan
     private final int width; // lebar lapangan
@@ -14,6 +14,15 @@ public class Game  {
     private int tick; // representasi waktu
     private Player P;
 
+    /**
+     * implementasi iterator dari interface Iterable
+     * @return animals.iterator();
+     */
+    @Override
+    public Iterator<FarmAnimal> iterator() {
+        return this.animals.iterator();
+    }
+    
     /**
      * Default constructor
      * bentuk lapangan dan benda-benda lain
@@ -303,14 +312,22 @@ public class Game  {
     public int searchAnimal(int x, int y){
         boolean found = false;
         int i = 0;
-        while(!found && i < getAnimalSize()){
+        /*while(!found && i < getAnimalSize()){
             if(getAnimal(i).getPosX() == x && getAnimal(i).getPosY() == y){
                 found = true;
             }
             i++;
+        }*/
+        for(FarmAnimal animal : animals){
+            if(animal.getPosX() == x && animal.getPosY() == y){
+                found = true;
+                break;
+            }
+            i++;
         }
         if (found) {
-            return i-1;
+            //return i-1;
+            return i;
         } else {
             return -999;
         }
