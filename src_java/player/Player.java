@@ -3,7 +3,7 @@ package player;
 import product.Product;
 import java.util.ArrayList;
 
-public class Player {
+public class Player implements Comparable<Product> {
     private int water; // banyak air yang dimiliki
     private ArrayList<Product> bag; // tas pemain
     private int posX; // posisi pemain (kolom)
@@ -12,6 +12,16 @@ public class Player {
     private final int maxBag; // kapasitas maksimum tas
     private int money; // Uang yang dimilki pemain
 
+    /**
+     * implementasi compareTo pada interface Comparable
+     * @param o Product yang akan jadi perbandingan
+     * @return 1 jika objek besar dari o, 0 jika objek sama dengan o, -1 jika objek kecik dari o
+     */
+    @Override
+    public int compareTo(Product o) {
+        return toString().compareTo(o.toString());
+    }
+    
     /**
      * Default constructor
      */
