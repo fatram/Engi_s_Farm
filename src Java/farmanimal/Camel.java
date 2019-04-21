@@ -26,8 +26,9 @@ public class Camel extends FarmAnimal {
     /**
      * Mencetak representasi suara unta
      */
-    public void bersuara(){
-        System.out.println("Owe owe");
+    public String bersuara(){
+
+        return "Owe owe";
     }
 
     /**

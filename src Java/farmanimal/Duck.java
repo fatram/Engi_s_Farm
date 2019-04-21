@@ -26,8 +26,8 @@ public class Duck extends FarmAnimal {
     /**
      * Mencetak representasi suara bebek
      */
-    public void bersuara(){
-        System.out.println("Kwek kwek");
+    public String bersuara(){
+        return "Kwek kwek";
     }
 
     /**

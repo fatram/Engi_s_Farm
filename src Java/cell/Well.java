@@ -4,6 +4,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import player.Player;
 
 public class Well extends Facility {
@@ -15,7 +16,7 @@ public class Well extends Facility {
         return 'W';
     }
 
-    public void interact(Player P){
+    public void interact(Player P, Stage root){
         P.setWater(P.getMaxWater());
     }
 

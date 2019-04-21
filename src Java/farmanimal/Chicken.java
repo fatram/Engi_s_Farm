@@ -26,8 +26,8 @@ public class Chicken extends FarmAnimal {
     /**
      * Mencetak representasi suara ayam
      */
-    public void bersuara(){
-        System.out.println("Petok petok");
+    public String bersuara(){
+        return "Petok petok";
     }
 
     /**

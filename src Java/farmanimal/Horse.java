@@ -26,8 +26,8 @@ public class Horse extends FarmAnimal {
     /**
      * Mencetak representasi suara kuda
      */
-    public void bersuara(){
-        System.out.println("Hiya hiya");
+    public String bersuara(){
+        return "Hiya hiya";
     }
 
     /**

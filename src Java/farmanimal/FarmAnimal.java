@@ -137,8 +137,8 @@ public abstract class FarmAnimal implements Renderable {
     /**
      * Mencetak suara hewan
      */
-    public void bersuara(){
-        System.out.println("Ini hewan");
+    public String bersuara(){
+        return "Ini hewan";
     }
 
     /**

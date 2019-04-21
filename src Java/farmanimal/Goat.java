@@ -26,8 +26,8 @@ public class Goat extends FarmAnimal {
     /**
      * Mencetak representasi suara kambing
      */
-    public void bersuara(){
-        System.out.println("Mbeeee");
+    public String bersuara(){
+        return "Mbeeee";
     }
 
     /**

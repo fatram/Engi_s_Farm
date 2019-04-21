@@ -1,13 +1,24 @@
 package gameplay;
 
 import java.util.LinkedList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import cell.*;
+import cell.Mixer;
 import farmanimal.*;
+import javafx.application.Platform;
+import javafx.geometry.Bounds;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import player.Player;
 
 
@@ -18,7 +29,7 @@ public class Gameplay  {
     private final int height; // tinggi lapangan
     private int tick; // representasi waktu
     private Player P;
-
+    private GridPane root;
     /**
      * Default constructor
      * bentuk lapangan dan benda-benda lain
@@ -66,6 +77,8 @@ public class Gameplay  {
         board[8][3].setHasGrass(true);
         board[9][3].setHasGrass(true);
         board[9][4].setHasGrass(true);
+
+
     }
 
     /**
@@ -117,46 +130,38 @@ public class Gameplay  {
      * Interpretasikan perintah dari pemain
      * @param c perintah pemain
      */
-    public void readCommand(String c){
+    public void readCommand(String c, Pane parent, Stage stage){
         if(c.equals("w")){
             if(P.getPosX()-1 >= 0 && !getBoard(P.getPosX() - 1, P.getPosY()).getHasFacility()){
                 P.setPosX(P.getPosX() - 1);
                 updateTick();
                 getBoard(0, 10).setCoolDownTruck(getBoard(0, 10).getCoolDownTruck()+1);
-                clearScreen();
                 moveAnimal();
                 updateAnimal();
-                printBoard();
             }
         } else if(c.equals("a")){
             if(P.getPosY()-1 >= 0 && !getBoard(P.getPosX(), P.getPosY()-1).getHasFacility()){
                 P.setPosY(P.getPosY() - 1);
                 updateTick();
                 getBoard(0, 10).setCoolDownTruck(getBoard(0, 10).getCoolDownTruck()+1);
-                clearScreen();
                 moveAnimal();
                 updateAnimal();
-                printBoard();
             }
         } else if(c.equals("s")){
             if(P.getPosX()+1 < getHeight() && !getBoard(P.getPosX() + 1, P.getPosY()).getHasFacility()){
                 P.setPosX(P.getPosX() + 1);
                 updateTick();
                 getBoard(0, 10).setCoolDownTruck(getBoard(0, 10).getCoolDownTruck()+1);
-                clearScreen();
                 moveAnimal();
                 updateAnimal();
-                printBoard();
             }
         } else if(c.equals("d")){
             if(P.getPosY()+1 < getWidth() && !getBoard(P.getPosX(), P.getPosY()+1).getHasFacility()){
                 P.setPosY(P.getPosY() + 1);
                 updateTick();
                 getBoard(0, 10).setCoolDownTruck(getBoard(0, 10).getCoolDownTruck()+1);
-                clearScreen();
                 moveAnimal();
                 updateAnimal();
-                printBoard();
             }
         } else if(c.equals("kill")){
             int i;
@@ -182,8 +187,6 @@ public class Gameplay  {
                     posY--;
                 }
             }
-            clearScreen();
-            printBoard();
         } else if(c.equals("interact")){
             int i;
             int posX, posY;
@@ -195,7 +198,8 @@ public class Gameplay  {
                 // cari hewan
                 i = searchAnimal(P.getPosX()+move[posX], P.getPosY()+move[posY]);
                 if( i != -999){
-                    if(getAnimal(i).isMilkProducing() || getAnimal(i).isEggProducing()){
+                    if((getAnimal(i).isMilkProducing() || getAnimal(i).isEggProducing()) && !getAnimal(i).isHungry()){
+                        getAnimal(i).setHungry(-1); //membuat animal lapar
                         FarmAnimal a = getAnimal(i);
                         P.addBag(a.interact());
                         found = true;
@@ -209,7 +213,7 @@ public class Gameplay  {
                         found = getBoard(P.getPosX()+move[posX], P.getPosY()+move[posY]).getHasFacility();
                     if (found){
                         Facility f = (Facility) getBoard(P.getPosX()+move[posX], P.getPosY()+move[posY]);
-                        f.interact(P);
+                        f.interact(P,stage);
                         updateTick();
                         getBoard(0, 10).setCoolDownTruck(getBoard(0, 10).getCoolDownTruck()+1);
                     }
@@ -219,8 +223,6 @@ public class Gameplay  {
                     }
                 }
             }
-            clearScreen();
-            printBoard();
         } else if(c.equals("grow")){
             if(P.getWater() > 0) {
                 if(!getBoard(P.getPosX(), P.getPosY()).getHasGrass()) {
@@ -231,33 +233,54 @@ public class Gameplay  {
                 }
             }
             updateTick();
-            printBoard();
             getBoard(0, 10).setCoolDownTruck(getBoard(0, 10).getCoolDownTruck()+1);
-            clearScreen();
-            printBoard();
         } else if(c.equals("talk")) {
             int i;
-            int posX,posY;
+            int posX, posY;
             boolean found = false;
-            int move[] = {-1,0,1,0}; //pengecekan searah jarum jam
+            int move[] = {-1, 0, 1, 0}; //pengecekan searah jarum jam
             posX = 0;
             posY = 3;
-            while (!found && posX<4)  {
-                i = searchAnimal(P.getPosX()+move[posX],P.getPosY()+move[posY]);
+            while (!found && posX < 4) {
+                i = searchAnimal(P.getPosX() + move[posX], P.getPosY() + move[posY]);
                 if (i != -999) {
-                    getAnimal(i).bersuara();
+                    Rectangle r = new Rectangle();
+                    r.setFill(Color.ANTIQUEWHITE);
+                    r.setWidth(90);
+                    r.setHeight(40);
+                    r.setArcWidth(30.0);
+                    r.setArcHeight(20.0);
+                    // ((GridPane)(game.getChildren().get(0)))
+                    System.out.println((P.getPosX() + move[posX])+", "+(P.getPosY() + move[posY]));
+                    Bounds boundsInScene = root.getChildren().get((P.getPosX() + move[posX]) * getWidth() + P.getPosY() + move[posY]).localToScene(
+                            root.getChildren().get((P.getPosX() + move[posX]) * getWidth() + P.getPosY() + move[posY]).getBoundsInLocal());
+                    Label lbl = new Label(getAnimal(i).bersuara());
+                    lbl.setFont(Font.font("PT Mono"));
+                    StackPane s = new StackPane();
+                    s.getChildren().addAll(r, lbl);
+                    s.setTranslateX(boundsInScene.getMinX()-20);
+                    s.setTranslateY(boundsInScene.getMinY()-100);
+                    parent.getChildren().add(s);
+                    Timer timer = new java.util.Timer();
+                    timer.schedule(new TimerTask() {
+                        public void run() {
+                            Platform.runLater(new Runnable() {
+                                public void run() {
+                                    if (parent.getChildren().get(1) != null) {
+                                        parent.getChildren().remove(1);
+                                        timer.cancel();
+                                    }
+                                }
+                            });
+                        }
+                    }, 2500, 2500);
                     found = true;
                     updateTick();
-                    getBoard(0, 10).setCoolDownTruck(getBoard(0, 10).getCoolDownTruck()+1);
-                }
-                else {
+                    getBoard(0, 10).setCoolDownTruck(getBoard(0, 10).getCoolDownTruck() + 1);
+                } else {
                     posX++;
                     posY--;
                 }
-            }
-        } else {
-            if(!c.equals("exit")) {
-                System.out.println("Perintah tidak tersedia");
             }
         }
     }
@@ -295,8 +318,7 @@ public class Gameplay  {
         animals.remove(a);
     }
 
-    /**
-     * Perbarui tick waktu, satu tambahan tick tiap satu perintah pemain
+    /**     * Perbarui tick waktu, satu tambahan tick tiap satu perintah pemain
      */
     public void updateTick(){
         setTick(getTick() + 1);
@@ -328,13 +350,14 @@ public class Gameplay  {
      * Cetak papan permainan dan status pemain melalui GUI
      */
     public GridPane showBoard(){
-        int DPOINT = 50;
-        GridPane root = new GridPane();
+        root = new GridPane();
+        root.setVgap(-1);
+        root.setHgap(-1);
         //root.setMinSize(DPOINT,DPOINT);
         for(int i = 0; i < getHeight(); i++){
             for(int j = 0; j < getWidth(); j++){
                 StackPane s = board[i][j].renderImg();
-                s.setPrefSize(DPOINT,DPOINT);
+                s.setPrefSize(50, 50);
                 if(P.getPosX() == i && P.getPosY() == j) {
                     Image personimg = new Image(getClass().getResourceAsStream("/assets/person.png"));
                     ImageView im = new ImageView();
@@ -349,39 +372,13 @@ public class Gameplay  {
                 if(searchAnimal(i, j) != -999){
                     s.getChildren().add(getAnimal(searchAnimal(i, j)).renderImg());
                 }
+                root.setGridLinesVisible(false);
                 root.add(s,j,i);
             }
         }
         return root;
     }
 
-    /**
-     * Cetak papan permainan dan status pemain
-     */
-    public void printBoard(){
-        System.out.println("Tick : " + getTick() + "\t Water : " + P.getWater() + "\t Money : " + P.getMoney());
-        for(int i = 0; i < getHeight(); i++){
-            for(int j = 0; j < getWidth(); j++){
-                if(searchAnimal(i, j) != -999){
-                    System.out.print(" | " + getAnimal(searchAnimal(i, j)).render());
-                } else if(P.getPosX() == i && P.getPosY() == j){
-                    System.out.print(" | P");
-                } else {
-                    System.out.print(" | " + getBoard(i, j).render());
-                }
-            }
-            System.out.println(" |");
-        }
-        // Print daftar item di dalam bag
-        System.out.println("Barang di dalam tas : ");
-        if(P.getBagSize() > 0){
-            for(int i = 0; i < P.getBagSize(); i++){
-                System.out.println((i+1) + ". " + P.getProduct(i).toString());
-            }
-        } else {
-            System.out.println("-");
-        }
-    }
     /**
      * Periksa keberadaan hewan di posisi x,y pada papan permainan
      * @param x posisi x yang dicari
@@ -444,30 +441,22 @@ public class Gameplay  {
     /**
      * Perbarui kondisi hewan-hewan di dalam animals, hapus hewan dari animals jika hewan mati
      */
-    public void updateAnimal(){
-        for(int i = 0; i < getAnimalSize(); i++){
+    public void updateAnimal() {
+        for (int i = 0; i < getAnimalSize(); i++) {
             getAnimal(i).updateHungry();
-            if(getAnimal(i).isHungry()){
+            if (getAnimal(i).isHungry()) {
                 // Kasus pertama, menginjak grass maka dimakan
-                if(getBoard(getAnimal(i).getPosX(), getAnimal(i).getPosY()).getHasGrass() &&
-                        getAnimal(i).isHungry()){
+                if (getBoard(getAnimal(i).getPosX(), getAnimal(i).getPosY()).getHasGrass() &&
+                        getAnimal(i).isHungry()) {
                     getBoard(getAnimal(i).getPosX(), getAnimal(i).getPosY()).setHasGrass(false);
                     getAnimal(i).makan();
                 } else {
                     // Kasus kedua, hungry <= -5 maka mati
-                    if(getAnimal(i).getHungry() <= - 5){
+                    if (getAnimal(i).getHungry() <= -5) {
                         delAnimal(getAnimal(i));
                     }
                 }
             }
         }
-    }
-
-    /**
-     * Clear command prompt screen
-     */
-    public static void clearScreen(){
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
     }
 }

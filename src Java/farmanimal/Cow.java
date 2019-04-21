@@ -26,8 +26,8 @@ public class Cow extends FarmAnimal {
     /**
      * Mencetak representasi suara sapi
      */
-    public void bersuara(){
-        System.out.println("Mooooo");
+    public String bersuara(){
+        return "Mooooo";
     }
 
     /**

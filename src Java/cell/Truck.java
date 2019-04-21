@@ -4,6 +4,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import player.Player;
 import product.Product;
 
@@ -35,7 +36,7 @@ public class Truck extends Facility {
      * Menjual seluruh item di dalam bag
      * @param P objek Player yang diubah
      */
-    public void interact(Player P){
+    public void interact(Player P, Stage root){
         Product p;
         if(getCoolDownTruck() > 10){
             while(!P.isBagEmpty()){
